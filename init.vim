@@ -9,14 +9,15 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'ajmwagar/vim-deus'
+"Plug 'ajmwagar/vim-deus'
 
 Plug 'arzg/vim-colors-xcode'
+
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
 set number
-
 
 inoremap jk <esc>
 
@@ -222,3 +223,21 @@ colorscheme xcodedark
 let g:deus_termcolors=256
 
 exec "nohlsearch"
+
+nnoremap <silent> <c-j> :call <SID>RunGcc()<CR>
+
+function! s:RunGcc()
+	exec "w"
+	if &filetype = 'cpp':
+		set splitbelow
+		exec "!g++ -std=c++11 % -Wall -o a.out"
+		:sp
+		:res -15
+		:term ./a.out"
+
+	endif
+
+endfunction
+
+
+
