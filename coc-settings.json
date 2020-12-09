@@ -1,0 +1,8 @@
+{
+	"suggest.enablePreselect": true,
+	"suggest.enablePreview": true,
+	"suggest.noselect": false,
+	"suggest.minTriggerInputLength": 1,
+	"coc.preferences.hoverTarget": "preview",
+	"coc.preferences.previewAutoClose": true
+}
