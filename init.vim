@@ -33,6 +33,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 
+Plug 'tomtom/tcomment_vim'
+
 
 call plug#end()
 
@@ -267,4 +269,20 @@ function! s:RunGcc()
 	endif
 
 endfunction
+
+augroup autoformat_settings
+	" autocmd filetype bzl autoformatbuffer buildifier
+	autocmd filetype c,cpp,proto,javascript,arduino autoformatbuffer clang-format
+	" autocmd filetype dart autoformatbuffer dartfmt
+	" autocmd filetype go autoformatbuffer gofmt
+	" autocmd filetype gn autoformatbuffer gn
+	" autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+	" autocmd FileType java AutoFormatBuffer google-java-format
+	" autocmd FileType python AutoFormatBuffer yapf 
+	" Alternative: autocmd FileType python AutoFormatBuffer autopep8
+	" autocmd FileType rust AutoFormatBuffer rustfmt
+		autocmd FileType vue AutoFormatBuffer prettier
+augroup END
+
+noremap <c-i> :TComment<Cr>
 
