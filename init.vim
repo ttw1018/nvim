@@ -9,7 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'wellle/tmux-complete.vim'
+"Plug 'wellle/tmux-complete.vim'
 
 
 Plug 'liuchengxu/vista.vim'
@@ -288,3 +288,4 @@ noremap <c-i> :TComment<Cr>
 
 noremap <c-/> :TComment<Cr>
 
+let g:Illuminate_highlightUnderCursor = 0
