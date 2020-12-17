@@ -44,6 +44,8 @@ set ignorecase
 set smartcase
 set lazyredraw
 
+set scrolloff=5
+
 
 " set ttyfast
 
@@ -130,6 +132,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -258,13 +262,13 @@ nnoremap <silent> <F5> :call <SID>RunGcc()<CR>
 function! s:RunGcc()
 	exec "w"
 	if &filetype == 'cpp'
-		set splitbelow
+		set splitright
 		exec "!g++ -std=c++11 % -Wall -o a.out -O3"
-		:sp
-		:term ./a.out
+		:vsplit
+		:term ./a.out <in
 	elseif &filetype == 'py'
 		set splitbelow
-		:sp
+		:vsplit
 		exec "!python %"
 	endif
 
@@ -288,4 +292,14 @@ noremap <c-i> :TComment<Cr>
 
 noremap <c-/> :TComment<Cr>
 
-let g:Illuminate_highlightUnderCursor = 0
+let g:Illuminate_highlightUnderCursor = 1
+
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
