@@ -17,7 +17,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"Plug 'ajmwagar/vim-deus'
+Plug 'ajmwagar/vim-deus'
 Plug 'arzg/vim-colors-xcode'
 Plug 'altercation/vim-colors-solarized'
 
@@ -55,6 +55,12 @@ noremap J 5j
 noremap K 5k
 noremap L $
 noremap H ^
+
+noremap <space>y "+y
+noremap <space>Y "+Y
+nnoremap <space>p "+p
+nnoremap <space>P "+P
+
 
 nnoremap <space><cr> :nohl<cr>
 
@@ -96,8 +102,13 @@ endif
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() 
-  \: <SID>skip_pair()
+inoremap <silent><expr> <TAB> 
+	\ pumvisible() ? coc#_select_confirm() :
+	\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>skip_pair()
+
+
+let g:coc_snippet_next = '<TAB>'
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
@@ -252,8 +263,11 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set background=dark    " Setting dark mode
 colorscheme onedark
+" colorscheme deus
 
 let g:deus_termcolors=256
+
+
 
 exec "nohlsearch"
 
@@ -266,6 +280,8 @@ function! s:RunGcc()
 		exec "!g++ -std=c++11 % -Wall -o a.out -O3"
 		:vsplit
 		:term ./a.out <in
+		:sp
+		:term ./a.out <in.txt
 	elseif &filetype == 'py'
 		set splitbelow
 		:vsplit
@@ -303,3 +319,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Write all buffers before navigating from Vim to tmux pane
 let g:tmux_navigator_save_on_switch = 2
+let g:Illuminate_highlightUnderCursor = 0
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
