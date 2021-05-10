@@ -7,19 +7,23 @@
 
 call plug#begin('~/.config/nvim/plugged')
 
+" 文件树
+"Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+
+
+Plug 'mhinz/vim-startify'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'wellle/tmux-complete.vim'
 
-
-Plug 'liuchengxu/vista.vim'
+"Plug 'liuchengxu/vista.vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'ajmwagar/vim-deus'
 Plug 'arzg/vim-colors-xcode'
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 
 Plug 'liuchengxu/space-vim-dark'
 
@@ -46,6 +50,8 @@ set lazyredraw
 
 set scrolloff=5
 
+set hlsearch
+set incsearch
 
 " set ttyfast
 
@@ -58,14 +64,17 @@ noremap H ^
 
 noremap <space>y "+y
 noremap <space>Y "+Y
-nnoremap <space>p "+p
-nnoremap <space>P "+P
+
+noremap <space>p "*p
+noremap <space>P "*P
 
 
 nnoremap <space><cr> :nohl<cr>
 
 
-set timeoutlen=200
+set timeoutlen=500
+
+
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -85,7 +94,7 @@ set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=500
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -126,13 +135,6 @@ function! s:skip_pair() abort
 	
 endfunction
 
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
@@ -269,25 +271,38 @@ let g:deus_termcolors=256
 
 
 
-exec "nohlsearch"
+exec "nohl"
 
 nnoremap <silent> <F5> :call <SID>RunGcc()<CR>
+nnoremap <silent> <space>lr :call <SID>RunGcc()<CR>
+nnoremap <silent> <space>ll :call <SID>RunGccWithInput()<CR>
 
 function! s:RunGcc()
 	exec "w"
 	if &filetype == 'cpp'
-		set splitright
+		set splitbelow
 		exec "!g++ -std=c++11 % -Wall -o a.out -O3"
-		:vsplit
+		:split
 		:term ./a.out <in
-		:sp
-		:term ./a.out <in.txt
 	elseif &filetype == 'py'
 		set splitbelow
 		:vsplit
 		exec "!python %"
 	endif
+endfunction
 
+function! s:RunGccWithInput()
+	exec "w"
+	if &filetype == 'cpp'
+		set splitbelow
+		exec "!g++ -std=c++11 % -Wall -o a.out -O3"
+		:split
+		:term ./a.out 
+	elseif &filetype == 'py'
+		set splitbelow
+		:vsplit
+		exec "!python %"
+	endif
 endfunction
 
 augroup autoformat_settings
@@ -304,11 +319,11 @@ augroup autoformat_settings
   autocmd FileType vue AutoFormatBuffer prettier
 augroup END
 
-noremap <c-i> :TComment<Cr>
+" noremap <c-u> :TComment<Cr>
 
-noremap <c-/> :TComment<Cr>
+noremap <c-/> :tcomment<cr>
 
-let g:Illuminate_highlightUnderCursor = 1
+let g:illuminate_highlightundercursor = 1
 
 let g:airline#extensions#tabline#enabled = 1
 
@@ -319,6 +334,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Write all buffers before navigating from Vim to tmux pane
 let g:tmux_navigator_save_on_switch = 2
-let g:Illuminate_highlightUnderCursor = 0
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+

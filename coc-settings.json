@@ -1,9 +1,10 @@
 {
-	"suggest.enablePreselect": true,
-	"suggest.enablePreview": true,
-	"suggest.noselect": false,
-	"suggest.minTriggerInputLength": 2,
-	"coc.preferences.hoverTarget": "preview",
-  "coc.preferences.previewAutoClose": true,
-  "clangd.path": "/home/vagrant/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
+    "suggest.enablePreselect": true,
+    "suggest.enablePreview": true,
+    "suggest.noselect": false,
+    "suggest.autoTrigger": "always",
+    "suggest.minTriggerInputLength": 0,
+    "coc.preferences.hoverTarget": "preview",
+    "coc.preferences.previewAutoClose": true,
+    "clangd.path": "/Users/ttw/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
 }

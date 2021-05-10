@@ -1,4 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/'
+let g:netrw_dirhist_0='/Users/ttw/Virtual Machines.localized/Ubuntu 64 位 20.04.2.0.vmwarevm'
+let g:netrw_dirhist_9='/Users/ttw/Virtual Machines.localized'
+let g:netrw_dirhist_8='/Users/ttw/.config/coc/extensions/coc-tabnine-data/binaries/0.0.1'
+let g:netrw_dirhist_7='/Users/ttw/.config/coc/extensions/coc-tabnine-data/binaries/0.0.1/x86_64-apple-darwin'
+let g:netrw_dirhist_6='/Users/ttw/.config/coc/extensions/coc-tabnine-data/binaries/0.0.1'
+let g:netrw_dirhist_5='/Users/ttw/.config/coc/extensions/coc-tabnine-data/binaries'
+let g:netrw_dirhist_4='/Users/ttw/.config/coc/extensions/coc-tabnine-data'
+let g:netrw_dirhist_3='/Users/ttw/Desktop/problems/.git'
 let g:netrw_dirhist_2='/home/vagrant/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
-let g:netrw_dirhist_1='/home/vagrant/.oh-my-zsh/custom/plugins/example'
