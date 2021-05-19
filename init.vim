@@ -11,6 +11,11 @@ call plug#begin('~/.config/nvim/plugged')
 "Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
+"Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+
+
+
+
 Plug 'mhinz/vim-startify'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -20,6 +25,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'ajmwagar/vim-deus'
 Plug 'arzg/vim-colors-xcode'
@@ -47,6 +54,7 @@ set lazyredraw
 set ignorecase
 set smartcase
 set lazyredraw
+set noswapfile
 
 set scrolloff=5
 
@@ -144,7 +152,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 
 
@@ -242,6 +249,7 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
+" Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
@@ -252,7 +260,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+	nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
 " vim dues setting
@@ -336,5 +344,3 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:tmux_navigator_save_on_switch = 2
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-

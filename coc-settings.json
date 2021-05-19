@@ -6,5 +6,15 @@
     "suggest.minTriggerInputLength": 0,
     "coc.preferences.hoverTarget": "preview",
     "coc.preferences.previewAutoClose": true,
-    "clangd.path": "/Users/ttw/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
+    "languageserver": {
+        "cquery": {
+            "command": "cquery",
+            "args": ["--log-file=/tmp/cq.log"],
+            "filetypes": ["c", "cc", "cpp", "c++"],
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cacheDirectory": "/tmp/cquery"
+            }
+        }
+    }
 }
