@@ -1,7 +1,6 @@
 {
     "suggest.enablePreselect": true,
     "suggest.enablePreview": true,
-    "suggest.detailField": "abbr",
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "suggest.noselect": false,
     "suggest.autoTrigger": "always",
