@@ -10,7 +10,6 @@ call plug#begin('~/.config/nvim/plugged')
 " 文件树
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
-
 "Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 
@@ -69,8 +68,13 @@ set autowrite
 
 inoremap jk <esc>
 
-noremap J 5j
-noremap K 5k
+
+noremap j gj
+noremap k gk
+
+
+noremap J 5gj
+noremap K 5gk
 noremap L $
 noremap H ^
 
@@ -83,19 +87,16 @@ noremap <space>P "*P
 
 nnoremap <space><cr> :nohl<cr>
 
-
-set timeoutlen=500
-
-
+set timeoutlen=300
 
 " TextEdit might fail if hidden is not set.
 set hidden
 
 set cursorline
 set noexpandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set autoindent
 
 " Some servers have issues with backup files, see #649.
@@ -106,7 +107,7 @@ set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=500
+set updatetime=4000
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -139,7 +140,7 @@ function! s:check_back_space() abort
 endfunction
 
 function! s:skip_pair() abort
-	if getline('.')[col('.') - 1] == ')' || getline('.')[col('.') - 1] == ']' || getline('.')[col('.') - 1] == '"' || getline('.')[col('.') - 1] == "'" || getline('.')[col('.') - 1] == '}'  
+	if getline('.')[col('.') - 1] == ')' || getline('.')[col('.') - 1] == ']' || getline('.')[col('.') - 1] == '"' || getline('.')[col('.') - 1] == "'" || getline('.')[col('.') - 1] == '}' || getline('.')[col('.') - 1] == '>'
 		return "\<RIGHT>"  
 	else  
 		return "\<TAB>"  
@@ -365,3 +366,10 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 " Empty value to disable preview window altogether
 let g:fzf_preview_window = []
 
+
+if has("autocmd")
+  autocmd BufReadPost * 
+    \ if line("'\"") > 0 && line("'\"") <= line("$") | 
+    \   exe "normal g`\"" | 
+    \ endif 
+endif

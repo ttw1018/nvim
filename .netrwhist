@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/tianwentang/Desktop/project/TipTrans'
 let g:netrw_dirhist_2='/Users/tianwentang/Movies'
 let g:netrw_dirhist_1='/Users/ttw/.config/nvim/plugged'
 let g:netrw_dirhist_0='/Users/ttw/Desktop/课程/linux/test'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_7='/Users/ttw/Desktop/test'
 let g:netrw_dirhist_6='/Users/ttw/Virtual Machines.localized'
 let g:netrw_dirhist_5='/Users/ttw/Virtual Machines.localized/.localized'
 let g:netrw_dirhist_4='/Users/ttw/Virtual Machines.localized'
-let g:netrw_dirhist_3='/Users/ttw/Applications'
