@@ -16,16 +16,18 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
+"
+Plug 'glepnir/dashboard-nvim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'wellle/tmux-complete.vim'
 
 "Plug 'liuchengxu/vista.vim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
 
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
@@ -279,7 +281,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set background=dark    " Setting dark mode
 " colorscheme onedark
-colorscheme deus
+colorscheme space-vim-dark
 
 let g:deus_termcolors=256
 
@@ -358,7 +360,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " - Note that this array is passed as arguments to fzf#vim#with_preview function.
 " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-
 " Preview window on the upper side of the window with 40% height,
 " hidden by default, ctrl-/ to toggle
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
@@ -373,3 +374,5 @@ if has("autocmd")
     \   exe "normal g`\"" | 
     \ endif 
 endif
+
+let g:dashboard_default_executive ='fzf'
