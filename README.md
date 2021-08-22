@@ -6,7 +6,6 @@ nvim config
 `git clone https://github.com/ttw1018/nvim  ~/.config/nvim`
 
 
-
 ## auto complete
 
 using coc.nvim
@@ -14,6 +13,9 @@ using coc.nvim
 ### c++
 
 run `CocInstall coc-clang`
+
+
+## autopairs
 
 run `CocInstall coc-pairs`
 

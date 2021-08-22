@@ -5,8 +5,8 @@
     "suggest.noselect": false,
     "suggest.autoTrigger": "always",
     "suggest.minTriggerInputLength": 0,
-    "coc.preferences.hoverTarget": "float",
-    "coc.preferences.previewAutoClose": true,
-    "suggest.maxCompleteItemCount": 8,
+    "coc.source.file.priority": 1,
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.maxCompleteItemCount": 50,
     "clangd.path": "/Users/tianwentang/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd"
 }

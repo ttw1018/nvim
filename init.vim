@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'glepnir/dashboard-nvim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 "Plug 'wellle/tmux-complete.vim'
 
 "Plug 'liuchengxu/vista.vim'
@@ -28,12 +29,18 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 
+" Plug 'glepnir/spaceline.vim'
+" Use the icon plugin for better behavior
+" Plug 'ryanoasis/vim-devicons' 
+" Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'itchyny/lightline.vim'
 
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'ajmwagar/vim-deus'
-Plug 'arzg/vim-colors-xcode'
-"Plug 'altercation/vim-colors-solarized'
+" Plug 'arzg/vim-colors-xcode'
+" Plug 'altercation/vim-colors-solarized'
 
 Plug 'liuchengxu/space-vim-dark'
 
@@ -48,6 +55,9 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 
 Plug 'tomtom/tcomment_vim'
+
+
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 
 
 call plug#end()
@@ -149,6 +159,7 @@ function! s:skip_pair() abort
 	endif
 	
 endfunction
+
 
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
@@ -276,15 +287,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 set t_Co=256
 set termguicolors
 
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
 set background=dark    " Setting dark mode
 " colorscheme onedark
 colorscheme space-vim-dark
-
-let g:deus_termcolors=256
-
 
 
 exec "nohl"
@@ -341,17 +346,12 @@ noremap <c-/> :tcomment<cr>
 
 let g:illuminate_highlightundercursor = 1
 
-let g:airline#extensions#tabline#enabled = 1
-
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
 
 " Write all buffers before navigating from Vim to tmux pane
 let g:tmux_navigator_save_on_switch = 2
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+
 
 
 " This is the default option:
@@ -376,3 +376,18 @@ if has("autocmd")
 endif
 
 let g:dashboard_default_executive ='fzf'
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+
+noremap <space>t <cmd>CHADopen<cr>
+
