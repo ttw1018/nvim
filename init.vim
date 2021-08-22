@@ -391,3 +391,6 @@ let g:lightline = {
 
 noremap <space>t <cmd>CHADopen<cr>
 
+
+
+
