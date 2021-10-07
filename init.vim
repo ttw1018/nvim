@@ -38,7 +38,7 @@ Plug 'itchyny/lightline.vim'
 
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
-Plug 'ajmwagar/vim-deus'
+" Plug 'ajmwagar/vim-deus'
 " Plug 'arzg/vim-colors-xcode'
 " Plug 'altercation/vim-colors-solarized'
 
@@ -58,7 +58,6 @@ Plug 'tomtom/tcomment_vim'
 
 
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-
 
 call plug#end()
 
@@ -297,6 +296,7 @@ exec "nohl"
 nnoremap <silent> <F5> :call <SID>RunGcc()<CR>
 nnoremap <silent> <space>lr :call <SID>RunGcc()<CR>
 nnoremap <silent> <space>ll :call <SID>RunGccWithInput()<CR>
+nnoremap <silent> <S-CR> :call <SID>RunGcc()<CR>
 
 function! s:RunGcc()
 	exec "w"
@@ -391,6 +391,6 @@ let g:lightline = {
 
 noremap <space>t <cmd>CHADopen<cr>
 
-
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 

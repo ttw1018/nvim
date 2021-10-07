@@ -4,10 +4,11 @@
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "suggest.noselect": false,
     "suggest.autoTrigger": "always",
-    "suggest.minTriggerInputLength": 2,
+    "suggest.minTriggerInputLength": 0,
     "coc.source.file.priority": 1,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.maxCompleteItemCount": 50,
-    "python.pythonPath": "python3",
+    "python.pythonPath": "~/venv/bin/python3.9",
+    "python.venvPath": "~/venv",
     "clangd.path": "/Users/tianwentang/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd"
 }
