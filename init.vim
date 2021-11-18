@@ -29,12 +29,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 
-" Plug 'glepnir/spaceline.vim'
+Plug 'glepnir/spaceline.vim'
 " Use the icon plugin for better behavior
 " Plug 'ryanoasis/vim-devicons' 
-" Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
@@ -43,6 +43,8 @@ Plug 'itchyny/lightline.vim'
 " Plug 'altercation/vim-colors-solarized'
 
 Plug 'liuchengxu/space-vim-dark'
+
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -62,8 +64,8 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 call plug#end()
 
 set number
-set lazyredraw
-set ignorecase
+set relativenumber
+" set ignorecase
 set smartcase
 set lazyredraw
 set noswapfile
@@ -98,7 +100,7 @@ noremap <space>P "*P
 
 nnoremap <space><cr> :nohl<cr>
 
-set timeoutlen=300
+set timeoutlen=500
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -125,12 +127,12 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+" if has("patch-8.1.1564")
+"   " Recently vim can merge signcolumn and number column into one
+"   set signcolumn=number
+" else
+"   set signcolumn=yes
+" endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -203,13 +205,13 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " xmap <leader>f  <Plug>(coc-format-selected)
 " nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+" augroup mygroup
+"   autocmd!
+"   " Setup formatexpr specified filetype(s).
+"   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+"   " Update signature help on jump placeholder.
+"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
@@ -248,13 +250,13 @@ augroup end
 " xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -288,7 +290,8 @@ set termguicolors
 
 set background=dark    " Setting dark mode
 " colorscheme onedark
-colorscheme space-vim-dark
+" colorscheme space-vim-dark
+colorscheme dracula
 
 
 exec "nohl"
@@ -332,7 +335,7 @@ augroup autoformat_settings
   autocmd FileType dart AutoFormatBuffer dartfmt
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  " autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType python AutoFormatBuffer yapf
   " Alternative: autocmd FileType python AutoFormatBuffer autopep8
@@ -393,4 +396,8 @@ noremap <space>t <cmd>CHADopen<cr>
 
 let g:python3_host_prog = '/usr/local/bin/python3'
 
+" let g:spaceline_seperate_style = 'arrow'
+
+nmap <Leader>t <Plug>(coc-translator-p)
+vmap <Leader>t <Plug>(coc-translator-pv)
 

@@ -8,7 +8,13 @@
     "coc.source.file.priority": 1,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.maxCompleteItemCount": 50,
-    "python.pythonPath": "~/venv/bin/python3.9",
-    "python.venvPath": "~/venv",
-    "clangd.path": "/Users/tianwentang/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd"
+    "python.pythonPath": "/usr/local/Caskroom/miniconda/base/envs/AI/bin/python3",
+	"python.venvPath": "/usr/local/Caskroom/miniconda/base/envs/AI/",
+    "suggest.detailField": "menu",
+    "clangd.path": "/Users/tianwentang/.config/coc/extensions/coc-clangd-data/install/12.0.1/clangd_12.0.1/bin/clangd",
+    "translator.engines": [
+        "youdao"
+    ],
+	"translator.enableHover": true,
+	"diagnostic.showUnused": false
 }
