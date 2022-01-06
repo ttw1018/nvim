@@ -1,10 +1,22 @@
+local function skip_pairs()
+	local line = vim.api.nvim_get_current_line()
+	local cursor = vim.api.nvim_win_get_cursor(0)[2]
+	local current = string.sub(line, cursor + 1, cursor + 1)
+	if current == '"' or current == "'" or current == ")" or current == "]" or current == "}" then
+		return true
+	else
+		return false
+	end
+end
+
+
 local present, cmp = pcall(require, "cmp")
 
 if not present then
    return
 end
 
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.completeopt = "menu,menuone,preview"
 
 cmp.setup {
    snippet = {
@@ -37,14 +49,27 @@ cmp.setup {
          behavior = cmp.ConfirmBehavior.Replace,
          select = true,
       },
+      -- ["<Tab>"] = function(fallback)
+      --    if cmp.visible() then
+      --       cmp.select_next_item()
+      --    elseif require("luasnip").expand_or_jumpable() then
+      --       vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+      --    else
+      --       fallback()
+      --    end
+      -- end,
+      --
+      
       ["<Tab>"] = function(fallback)
-         if cmp.visible() then
-            cmp.select_next_item()
+              if cmp.visible() then
+                      cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
          elseif require("luasnip").expand_or_jumpable() then
             vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
-         else
-            fallback()
-         end
+              elseif skip_pairs() then
+                      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<right>", true, true, true), "i", true)
+              else
+                      fallback()
+              end
       end,
       ["<S-Tab>"] = function(fallback)
          if cmp.visible() then
@@ -63,4 +88,7 @@ cmp.setup {
       { name = "nvim_lua" },
       { name = "path" },
    },
+  completion = {
+      completeopt = "menu,menuone,preview",
+  },
 }
