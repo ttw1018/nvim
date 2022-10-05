@@ -20,8 +20,6 @@ local sources = {
 
   b.formatting.markdownlint,
 
-  -- b.diagnostics.markdownlint,
-
   b.diagnostics.chktex,
 }
 

@@ -23,6 +23,7 @@ lspconfig.texlab.setup {
     texlab = {
       auxDirectory = "./output",
       build = {
+        executable = "latexmk",
         args = {"-xelatex", "-outdir=output", "-synctex=1", "-interaction=nonstopmode", "%f"},
         onSave = false,
       },

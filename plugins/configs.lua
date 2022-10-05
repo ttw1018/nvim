@@ -70,6 +70,7 @@ M.ui = {
     overriden_modules = nil,
   },
 }
+
 M.telescope = function ()
   local telescope = require("telescope")
 
@@ -82,9 +83,17 @@ M.telescope = function ()
           "--no-ignore"
         },
       }
-    }
+    },
+    extensions_list = { "fzf" },
   }
 end
+
+M.nvimtree = {
+  git = {
+    enable = true,
+    ignore = false,
+  },
+}
 
 
 return M

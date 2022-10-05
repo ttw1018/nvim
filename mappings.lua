@@ -90,5 +90,17 @@ M.lspconfig = {
   }
 }
 
+M.nvimtree = {
+  n = {
+    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+  },
+}
+
+M.disabled = {
+  n = {
+    ["<C-n>"] = "",
+  }
+}
+
 
 return M
