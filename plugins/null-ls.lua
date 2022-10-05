@@ -1,4 +1,4 @@
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local present, null_ls = pcall(require, "null-ls")
 
@@ -9,22 +9,19 @@ end
 local b = null_ls.builtins
 
 local sources = {
-  -- webdev stuff
+
   b.formatting.prettier,
-  -- Lua
   b.formatting.stylua,
-  -- python
   b.formatting.black,
-
   b.formatting.latexindent,
+  b.formatting.prettier,
 
-  b.formatting.markdownlint,
 
   b.diagnostics.chktex,
 }
 
 null_ls.setup {
-  debug = true,
+  debug = false,
   sources = sources,
   -- on_attach = function(client, bufnr)
   --   if client.supports_method("textDocument/formatting") then

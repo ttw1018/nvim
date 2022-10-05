@@ -87,6 +87,8 @@ return {
           MkdnUnfoldSection = false,
           MkdnNextLink = false,
           MkdnPrevLink = false,
+          MkdnTableNextCell = false,
+          MkdnTablePrevCell = false,
         }
       })
     end,

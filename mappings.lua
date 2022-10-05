@@ -45,12 +45,26 @@ M.general  = {
     ['<leader>pp'] = {'<cmd> Preview <CR>', 'preview markdown and latex pdf'},
 
     ['<leader>tt'] = {'<cmd> Telescope <CR>', 'open telescope'},
+
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.format{ async = true }
+      end,
+      "lsp formatting",
+    },
   },
   v = {
     ['J'] = {'5j', ''},
     ['K'] = {'5k', ''},
     ['H'] = {'^', ''},
     ['L'] = {'$', ''},
+
+    ["<leader>fm"] = {
+      function()
+        vim.lsp.buf.format{ async = true }
+      end,
+      "lsp formatting",
+    },
   }
 }
 
@@ -81,12 +95,6 @@ M.lspconfig = {
 
     ['<leader>fs'] = {'<cmd> TexlabForward <CR>', 'latex forward search'},
 
-    ["<leader>fm"] = {
-      function()
-        vim.lsp.buf.format{ async = true }
-      end,
-      "lsp formatting",
-    },
   }
 }
 
