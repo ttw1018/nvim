@@ -15,6 +15,11 @@ M.nvterm = {
 
 
 M.treesitter = {
+  -- autotag = {
+  --   enable = true,
+  -- },
+  auto_install = true,
+
   ensure_installed = {
     "lua",
     "c",
@@ -80,7 +85,8 @@ M.telescope = function ()
         find_command = {
           "rg",
           "--files",
-          "--no-ignore"
+          "--no-ignore",
+          "-L",
         },
       }
     },

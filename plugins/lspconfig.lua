@@ -2,7 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "clangd", "cmake", "vimls" }
+local servers = { "clangd", "cmake", "vimls", "tsserver", "gopls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -43,7 +43,7 @@ lspconfig.texlab.setup {
 vim.diagnostic.config({
   virtual_text = false,
   signs = true,
-  underline = false,
+  underline = true,
   update_in_insert = false,
   severity_sort = true,
 })

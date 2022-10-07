@@ -15,7 +15,7 @@ local sources = {
   b.formatting.black,
   b.formatting.latexindent,
   b.formatting.prettier,
-
+  -- b.formatting.markdownlint,
 
   b.diagnostics.chktex,
 }

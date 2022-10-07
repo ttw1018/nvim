@@ -18,6 +18,10 @@ return {
   --   disable = true,
   -- },
 
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = custom_config.treesitter,
+  },
+
   ["hrsh7th/nvim-cmp"] = {
     override_options = custom_config.cmp
   },
@@ -166,21 +170,13 @@ return {
     after = "nvim-lspconfig",
   },
 
-  -- ["rcarriga/nvim-notify"] = {
-  --   config = function ()
-  --     require "notify".setup {
-  --     }
-  --   end,
-  -- },
-  -- ["windwp/nvim-ts-autotag"] = {
-  --   config = function ()
-  --     require'nvim-treesitter.configs'.setup {
-  --     }
-  --   end
-  -- }
-  -- ["stevearc/dressing.nvim"] = {
-  --
-  -- }
+  ["windwp/nvim-ts-autotag"] = {
+    config = function ()
+      require('nvim-ts-autotag').setup()
+    end,
+    after = "nvim-treesitter"
+  },
+
   ["Shatur/neovim-session-manager"] = {
     config = function ()
       local Path = require('plenary.path')
