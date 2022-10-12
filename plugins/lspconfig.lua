@@ -2,7 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "clangd", "cmake", "vimls", "tsserver", "gopls" }
+local servers = { "clangd", "cmake", "vimls", "tsserver", "gopls", "marksman" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -24,7 +24,7 @@ lspconfig.texlab.setup {
       auxDirectory = "./output",
       build = {
         executable = "latexmk",
-        args = {"-xelatex", "-outdir=output", "-synctex=1", "-interaction=nonstopmode", "%f"},
+        args = { "-xelatex", "-shell-escape", "-output-directory=output", "-synctex=1", "-interaction=nonstopmode", "%f" },
         onSave = false,
       },
       chktex = {
@@ -32,18 +32,16 @@ lspconfig.texlab.setup {
       },
       forwardSearch = {
         executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
-        args = {"%l", "%p", "%f"},
-      }
-    }
-  }
+        args = { "%l", "%p", "%f" },
+      },
+    },
+  },
 }
 
-
-
-vim.diagnostic.config({
+vim.diagnostic.config {
   virtual_text = false,
   signs = true,
   underline = true,
   update_in_insert = false,
   severity_sort = true,
-})
+}

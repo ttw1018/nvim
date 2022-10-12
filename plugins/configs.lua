@@ -15,57 +15,29 @@ M.nvterm = {
 
 
 M.treesitter = {
-  -- autotag = {
-  --   enable = true,
-  -- },
-  auto_install = true,
-
-  ensure_installed = {
-    "lua",
-    "c",
-    "markdown",
-    "python",
-    "markdown_inline",
-    "bash",
-    "cpp",
-    "fish"
-  }
+  autotag = {
+    enable = true,
+  },
 }
 
 M.cmp = function ()
-  local cmp = require 'cmp'
+  -- local cmp = require 'cmp'
 
-  cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
   return {
-    -- window = {
-    --   documentation = {
-    --     border = border("DocWin")
-    --   }
-    -- },
-    -- completion = {
-    --   completeopt = "menu,menuone,preview,noinsert,noselect",
-    -- },
-
     sources = {
       { name = "luasnip" },
       { name = "nvim_lsp" },
       { name = "buffer" },
       { name = "nvim_lua" },
       { name = "path" },
-      -- { name = "spell" },
       { name = 'emoji' },
     },
 
-    mappings = {
-      ["<CR>"] = cmp.mapping.confirm {
-        select = false,
-      },
-    }
+    -- mappings = {
+    --   ["<CR>"] = cmp.mapping.confirm {
+    --     select = false,
+    --   },
+    -- }
   }
 end
 
@@ -78,7 +50,6 @@ M.ui = {
 
 M.telescope = function ()
   local telescope = require("telescope")
-
   telescope.setup {
     pickers = {
       find_files = {
@@ -90,7 +61,6 @@ M.telescope = function ()
         },
       }
     },
-    extensions_list = { "fzf" },
   }
 end
 
@@ -100,6 +70,5 @@ M.nvimtree = {
     ignore = false,
   },
 }
-
 
 return M

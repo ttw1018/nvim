@@ -8,9 +8,9 @@ M.ui = {
   theme = "onedark",
   hl_override = {
     -- Comment = { italic = true },
-    CursorLine = { bg = "#343a46" },
+    -- CursorLine = { bg = "#343a46" },
   },
-   -- transparency = true,
+  -- transparency = true,
 }
 
 M.plugins = require "custom.plugins"

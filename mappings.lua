@@ -1,73 +1,61 @@
 M = {}
 
-M.general  = {
+M.general = {
   i = {
-    ["jk"] = {"<ESC>", "esc to normal mode"}
+    ["jk"] = { "<ESC>", "esc to normal mode" },
   },
   n = {
-    ['J'] = {'5j', ''},
-    ['K'] = {'5k', ''},
-    ['H'] = {'^', ''},
-    ['L'] = {'$', ''},
+    ["J"] = { "5j", "" },
+    ["K"] = { "5k", "" },
+    ["H"] = { "^", "" },
+    ["L"] = { "$", "" },
 
-    ["j"] = {"gj", "next line"},
+    ["j"] = { "gj", "next line" },
 
-    ["k"] = {"gk", "previous line"},
+    ["k"] = { "gk", "previous line" },
 
-    -- ['<C-h>'] = {
-    --   function()
-    --     require('Navigator').left()
-    --   end,
-    --   "move to left"
-    -- },
-    --
-    -- ['<C-l>'] = {
-    --   function()
-    --     require('Navigator').right()
-    --   end,
-    --   "move to right",
-    -- },
-    --
-    -- ['<C-j>'] = {
-    --   function()
-    --     require('Navigator').down()
-    --   end,
-    --   "move to down",
-    -- },
-    --
-    -- ['<C-k>'] = {
-    --   function()
-    --     require('Navigator').up()
-    --   end,
-    --   "move to up",
-    -- },
-
-    ['<leader>pp'] = {'<cmd> Preview <CR>', 'preview markdown and latex pdf'},
-
-    ['<leader>tt'] = {'<cmd> Telescope <CR>', 'open telescope'},
-
-    ["<leader>fm"] = {
+    ["<C-h>"] = {
       function()
-        vim.lsp.buf.format{ async = true }
+        require("Navigator").left()
       end,
-      "lsp formatting",
+      "move to left",
     },
+
+    ["<C-l>"] = {
+      function()
+        require("Navigator").right()
+      end,
+      "move to right",
+    },
+
+    ["<C-j>"] = {
+      function()
+        require("Navigator").down()
+      end,
+      "move to down",
+    },
+
+    ["<C-k>"] = {
+      function()
+        require("Navigator").up()
+      end,
+      "move to up",
+    },
+
+    ["<leader>pp"] = { "<cmd> Preview <CR>", "preview markdown and latex pdf" },
+
+    ["<leader>tt"] = { "<cmd> Telescope <CR>", "open telescope" },
+
+    ["<space>s"] = { "<cmd> w <CR>", "save file" },
+
   },
   v = {
-    ['J'] = {'5j', ''},
-    ['K'] = {'5k', ''},
-    ['H'] = {'^', ''},
-    ['L'] = {'$', ''},
-
-    ["<leader>fm"] = {
-      function()
-        vim.lsp.buf.format{ async = true }
-      end,
-      "lsp formatting",
-    },
-  }
+    ["J"] = { "5j", "" },
+    ["K"] = { "5k", "" },
+    ["H"] = { "^", "" },
+    ["L"] = { "$", "" },
+  },
 }
-
 
 M.lspconfig = {
   n = {
@@ -91,11 +79,10 @@ M.lspconfig = {
       "goto_next",
     },
 
-    ['<leader>ll'] = {'<cmd> TexlabBuild <CR>', 'latex build'},
+    ["<leader>ll"] = { "<cmd> TexlabBuild <CR>", "latex build" },
 
-    ['<leader>fs'] = {'<cmd> TexlabForward <CR>', 'latex forward search'},
-
-  }
+    ["<leader>fs"] = { "<cmd> TexlabForward <CR>", "latex forward search" },
+  },
 }
 
 M.nvimtree = {
@@ -107,8 +94,7 @@ M.nvimtree = {
 M.disabled = {
   n = {
     ["<C-n>"] = "",
-  }
+  },
 }
-
 
 return M

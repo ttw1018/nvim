@@ -1,5 +1,12 @@
-vim.opt.timeoutlen = 500
+local opt = vim.opt
+local g = vim.g
 
-vim.g.luasnippets_path = "~/.snippets"
+opt.timeoutlen = 500
+opt.scrolloff = 10
+opt.number = true
+opt.relativenumber = true
+opt.updatetime = 1000
+opt.swapfile = false
+opt.wrap = false
 
-vim.opt.scrolloff = 5
+g.luasnippets_path = "~/.snippets"
