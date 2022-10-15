@@ -23,21 +23,16 @@ M.treesitter = {
 M.cmp = function ()
   -- local cmp = require 'cmp'
 
+  vim.opt.completeopt = "menu,preview,noselect"
+
   return {
     sources = {
-      { name = "luasnip" },
       { name = "nvim_lsp" },
+      { name = "luasnip" },
       { name = "buffer" },
       { name = "nvim_lua" },
       { name = "path" },
-      { name = 'emoji' },
     },
-
-    -- mappings = {
-    --   ["<CR>"] = cmp.mapping.confirm {
-    --     select = false,
-    --   },
-    -- }
   }
 end
 

@@ -9,10 +9,10 @@ M.general = {
     ["K"] = { "5k", "" },
     ["H"] = { "^", "" },
     ["L"] = { "$", "" },
-
-    ["j"] = { "gj", "next line" },
-
-    ["k"] = { "gk", "previous line" },
+    --
+    -- ["j"] = { "gj", "next line" },
+    --
+    -- ["k"] = { "gk", "previous line" },
 
     ["<C-h>"] = {
       function()
@@ -82,6 +82,8 @@ M.lspconfig = {
     ["<leader>ll"] = { "<cmd> TexlabBuild <CR>", "latex build" },
 
     ["<leader>fs"] = { "<cmd> TexlabForward <CR>", "latex forward search" },
+
+    ["<leader>q"] = {"<cmd> TroubleToggle <CR>", "open trouble list"},
   },
 }
 

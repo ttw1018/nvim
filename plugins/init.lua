@@ -91,10 +91,6 @@ return {
 		ft = { "md", "markdown", "tex", "latex" },
 	},
 
-	["hrsh7th/cmp-emoji"] = {
-		after = "cmp-buffer",
-	},
-
 	["ethanholz/nvim-lastplace"] = {
 		config = function()
 			require("nvim-lastplace").setup()
@@ -154,12 +150,19 @@ return {
 		after = "nvim-treesitter",
 	},
 
-	["olimorris/persisted.nvim"] = {
-		config = function()
-			require("persisted").setup({
-				autoload = true,
-				autosave = true,
-			})
-		end,
-	},
+	-- ["olimorris/persisted.nvim"] = {
+	-- 	config = function()
+	-- 		require("persisted").setup({
+	-- 			autoload = true,
+	-- 			autosave = true,
+	-- 		})
+	-- 	end,
+	-- },
+  [ "folke/trouble.nvim"] = {
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+      }
+    end
+  }
 }
