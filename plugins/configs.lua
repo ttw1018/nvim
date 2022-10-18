@@ -18,6 +18,12 @@ M.treesitter = {
   autotag = {
     enable = true,
   },
+  indent = {
+    enable = true,
+    disable = {
+      "python"
+    }
+  }
 }
 
 M.cmp = function ()
@@ -37,10 +43,10 @@ M.cmp = function ()
 end
 
 M.ui = {
-  statusline = {
-    separator_style = "round",
-    overriden_modules = nil,
-  },
+  -- statusline = {
+  --   separator_style = "round",
+  --   overriden_modules = nil,
+  -- },
 }
 
 M.telescope = function ()
@@ -56,6 +62,7 @@ M.telescope = function ()
         },
       }
     },
+    extensions_list = { "fzf" }
   }
 end
 

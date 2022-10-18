@@ -37,10 +37,11 @@ return {
 
 	["ekickx/clipboard-image.nvim"] = {
 		config = function()
-			require("clipboard-image").setup({
-				markdown = {
-					img_dir_txt = "file:../img",
-				},
+      require("clipboard-image").setup({
+        markdown = {
+          img_dir = {"%:p:h", "img"},
+          img_dir_txt = "file:./img",
+        }
 			})
 		end,
 		after = "markdown-preview.nvim",
@@ -91,11 +92,11 @@ return {
 		ft = { "md", "markdown", "tex", "latex" },
 	},
 
-	["ethanholz/nvim-lastplace"] = {
-		config = function()
-			require("nvim-lastplace").setup()
-		end,
-	},
+	-- ["ethanholz/nvim-lastplace"] = {
+	-- 	config = function()
+	-- 		require("nvim-lastplace").setup()
+	-- 	end,
+	-- },
 
 	["folke/todo-comments.nvim"] = {
 		after = "cmp-buffer",
@@ -112,33 +113,6 @@ return {
 		after = "nvim-lspconfig",
 	},
 
-	["abecodes/tabout.nvim"] = {
-		config = function()
-			require("tabout").setup({
-				tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
-				backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-				act_as_tab = true, -- shift content if tab out is not possible
-				act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-				default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-				default_shift_tab = "<C-d>", -- reverse shift default action,
-				enable_backwards = true, -- well ...
-				completion = true, -- if the tabkey is used in a completion pum
-				tabouts = {
-					{ open = "'", close = "'" },
-					{ open = '"', close = '"' },
-					{ open = "`", close = "`" },
-					{ open = "(", close = ")" },
-					{ open = "[", close = "]" },
-					{ open = "{", close = "}" },
-				},
-				ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-				exclude = {}, -- tabout will ignore these filetypes
-			})
-		end,
-		wants = { "nvim-treesitter" }, -- or require if not used so far
-		after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
-	},
-
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		after = "nvim-lspconfig",
 		config = function()
@@ -150,6 +124,16 @@ return {
 		after = "nvim-treesitter",
 	},
 
+  ["karb94/neoscroll.nvim"] = {
+    config = function ()
+      require('neoscroll').setup({
+        -- All these keys will be mapped to their corresponding default scrolling animation
+        mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+          '<C-y>', '<C-e>', 'zt', 'zz', 'zb', 'j', 'k'},
+      })
+    end
+  }
+
 	-- ["olimorris/persisted.nvim"] = {
 	-- 	config = function()
 	-- 		require("persisted").setup({
@@ -158,11 +142,15 @@ return {
 	-- 		})
 	-- 	end,
 	-- },
-  [ "folke/trouble.nvim"] = {
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-      }
-    end
-  }
+  -- [ "folke/trouble.nvim"] = {
+  --   requires = "kyazdani42/nvim-web-devicons",
+  --   config = function()
+  --     require("trouble").setup {
+  --     }
+  --   end
+  -- }
+
+  -- ["nvim-telescope/telescope-fzf-native.nvim"] = {
+  --   run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+  -- }
 }
