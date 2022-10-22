@@ -14,7 +14,19 @@ end
 lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "off",
+      }
+    }
+  }
 }
+
+-- lspconfig.pyre.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 
 lspconfig.texlab.setup {
   on_attach = on_attach,

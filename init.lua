@@ -7,8 +7,8 @@ opt.scrolloff = 8
 -- opt.relativenumber = true
 -- opt.updatetime = 3000
 opt.swapfile = false
-opt.wrap = false
-opt.spell = true
-opt.spelllang = "en_us"
+opt.wrap = true
+-- opt.spell = true
+-- opt.spelllang = "en_us"
 
 g.luasnippets_path = "~/.snippets"

@@ -124,33 +124,8 @@ return {
 		after = "nvim-treesitter",
 	},
 
-  ["karb94/neoscroll.nvim"] = {
-    config = function ()
-      require('neoscroll').setup({
-        -- All these keys will be mapped to their corresponding default scrolling animation
-        mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-          '<C-y>', '<C-e>', 'zt', 'zz', 'zb', 'j', 'k'},
-      })
-    end
+  ['nvim-telescope/telescope-fzf-native.nvim'] = {
+    run = 'make',
   }
 
-	-- ["olimorris/persisted.nvim"] = {
-	-- 	config = function()
-	-- 		require("persisted").setup({
-	-- 			autoload = true,
-	-- 			autosave = true,
-	-- 		})
-	-- 	end,
-	-- },
-  -- [ "folke/trouble.nvim"] = {
-  --   requires = "kyazdani42/nvim-web-devicons",
-  --   config = function()
-  --     require("trouble").setup {
-  --     }
-  --   end
-  -- }
-
-  -- ["nvim-telescope/telescope-fzf-native.nvim"] = {
-  --   run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-  -- }
 }

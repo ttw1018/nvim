@@ -62,7 +62,9 @@ M.telescope = function ()
         },
       }
     },
-    extensions_list = { "fzf" }
+  }
+  return {
+    extensions_list = { "fzf", "themes" }
   }
 end
 

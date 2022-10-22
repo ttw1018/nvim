@@ -5,15 +5,10 @@ M.general = {
     ["jk"] = { "<ESC>", "esc to normal mode" },
   },
   n = {
-    -- ["J"] = { "<nop>", "" },
-    -- ["K"] = { "", "" },
+    ["J"] = { "5j", "" },
+    ["K"] = { "5k", "" },
     ["H"] = { "^", "" },
     ["L"] = { "$", "" },
-    --
-    -- ["j"] = { "gj", "next line" },
-    --
-    -- ["k"] = { "gk", "previous line" },
-
     ["<C-h>"] = {
       function()
         require("Navigator").left()
@@ -83,7 +78,7 @@ M.lspconfig = {
 
     ["<leader>fs"] = { "<cmd> TexlabForward <CR>", "latex forward search" },
 
-    ["<leader>q"] = {"<cmd> TroubleToggle <CR>", "open trouble list"},
+    -- ["<leader>q"] = {"<cmd> TroubleToggle <CR>", "open trouble list"},
   },
 }
 
@@ -93,9 +88,16 @@ M.nvimtree = {
   },
 }
 
+M.telescope = {
+  n = {
+    ["<leader>fl"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
+  }
+}
+
 M.disabled = {
   n = {
     ["<C-n>"] = "",
+    ["K"] = "",
   },
 }
 
