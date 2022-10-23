@@ -92,11 +92,6 @@ return {
 		ft = { "md", "markdown", "tex", "latex" },
 	},
 
-	-- ["ethanholz/nvim-lastplace"] = {
-	-- 	config = function()
-	-- 		require("nvim-lastplace").setup()
-	-- 	end,
-	-- },
 
 	["folke/todo-comments.nvim"] = {
 		after = "cmp-buffer",
@@ -126,6 +121,12 @@ return {
 
   ['nvim-telescope/telescope-fzf-native.nvim'] = {
     run = 'make',
-  }
+  },
 
+  ['lervag/vimtex'] = {
+    config = function ()
+      require "custom.plugins.vimtex"
+    end,
+		ft = { "tex", "latex" },
+  }
 }

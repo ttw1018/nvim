@@ -5,7 +5,7 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-  theme = "onedark",
+  theme = "onenord",
   hl_override = {
     -- Comment = { italic = true },
     -- CursorLine = { bg = "#343a46" },

@@ -37,7 +37,7 @@ lspconfig.texlab.setup {
       build = {
         executable = "latexmk",
         args = { "-xelatex", "-shell-escape", "-output-directory=output", "-synctex=1", "-interaction=nonstopmode", "%f" },
-        onSave = true,
+        -- onSave = true,
       },
       chktex = {
         onEdit = false,

@@ -13,7 +13,7 @@ local sources = {
   b.formatting.black,
   b.formatting.latexindent,
   b.formatting.clang_format,
-  b.diagnostics.chktex,
+  -- b.diagnostics.chktex,
 }
 
 null_ls.setup {

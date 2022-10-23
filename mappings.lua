@@ -73,12 +73,7 @@ M.lspconfig = {
       end,
       "goto_next",
     },
-
-    ["<leader>ll"] = { "<cmd> TexlabBuild <CR>", "latex build" },
-
     ["<leader>fs"] = { "<cmd> TexlabForward <CR>", "latex forward search" },
-
-    -- ["<leader>q"] = {"<cmd> TroubleToggle <CR>", "open trouble list"},
   },
 }
 
@@ -91,6 +86,15 @@ M.nvimtree = {
 M.telescope = {
   n = {
     ["<leader>fl"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
+  }
+}
+
+M.vimtex = {
+  n = {
+    ["<leader>ll"] = { "<cmd> VimtexCompile <CR>", "vimtex build" },
+    ["<leader>to"] = { "<cmd> VimtexTocToggle <CR>", "textex toc" },
+    -- ["<leader>pp"] = { "<cmd> VimtexView <CR>", "vimtex preview" },
+    ["<leader>pe"] = { "<cmd> VimtexErrors <CR>", "vimtex errors" },
   }
 }
 
