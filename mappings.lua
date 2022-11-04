@@ -41,7 +41,7 @@ M.general = {
 
     ["<leader>tt"] = { "<cmd> Telescope <CR>", "open telescope" },
 
-    ["<space>s"] = { "<cmd> w <CR>", "save file" },
+    ["<space>w"] = { "<cmd> w <CR>", "save file" },
 
   },
   v = {
@@ -92,9 +92,8 @@ M.telescope = {
 M.vimtex = {
   n = {
     ["<leader>ll"] = { "<cmd> VimtexCompile <CR>", "vimtex build" },
-    ["<leader>to"] = { "<cmd> VimtexTocToggle <CR>", "textex toc" },
-    -- ["<leader>pp"] = { "<cmd> VimtexView <CR>", "vimtex preview" },
-    ["<leader>pe"] = { "<cmd> VimtexErrors <CR>", "vimtex errors" },
+    ["<leader>to"] = { "<cmd> VimtexTocOpen <CR>", "textex toc" },
+    ["<leader>le"] = { "<cmd> VimtexErrors <CR>", "vimtex errors" },
   }
 }
 

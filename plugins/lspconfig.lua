@@ -18,6 +18,7 @@ lspconfig.pyright.setup {
     python = {
       analysis = {
         typeCheckingMode = "off",
+        useLibraryCodeForTypes = true,
       }
     }
   }
