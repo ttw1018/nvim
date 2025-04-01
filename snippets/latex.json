@@ -1,0 +1,91 @@
+{
+  "engine":{
+    "prefix": "engine",
+    "body": [
+      "% !TEX program = pdflatex$0"
+    ]
+  },
+  "root":{
+    "prefix": "root",
+    "body": [
+      "%! TEX root = $0"
+    ]
+  },
+  "figure": {
+    "prefix": "figure",
+    "body": [
+      "\\begin{figure}[ht]",
+      "\t\\centering",
+      "\t\\includegraphics[width=\\linewidth]{img/$1}",
+      "\t\\caption{}",
+      "\t\\label{fig: }",
+      "\\end{figure}"
+    ]
+  },
+  "table": {
+    "prefix": "table",
+    "body": [
+      "\\begin{table}[ht]",
+      "\t\\centering",
+      "\t\\begin{tabular}{$1}",
+      "\t\t$2",
+      "\t\\end{tabular}",
+      "\t\\caption{}",
+      "\t\\label{table: }",
+      "\\end{table}"
+    ]
+  },
+  "equation": {
+    "prefix": "equation",
+    "body": [
+      "\\begin{equation}",
+      "\t$1",
+      "\t\\label{eq: }",
+      "\\end{equation}"
+    ]
+  },
+  "document": {
+    "prefix": "document",
+    "body": [
+      "\\begin{document}",
+      "$1",
+      "\\end{document}"
+    ]
+  },
+  "tabluar": {
+    "prefix": "tabular",
+    "body": [
+      "\\begin{tabluar}{$1}",
+      "\t$2",
+      "\\end{tabular}"
+    ]
+  },
+  "aligned": {
+    "prefix": "aligned",
+    "body": [
+      "\\begin{aligned}",
+      "\t$1",
+      "\\end{aligned}"
+    ]
+  },
+  "itemize": {
+    "prefix": "itemize",
+    "body": [
+      "\\begin{itemize}",
+      "\t\\item $1",
+      "\\end{itemize}"
+    ]
+  },
+  "enumerate": {
+    "prefix": "enumerate",
+    "body": [
+      "\\begin{enumerate}",
+      "\t\\item $1",
+      "\\end{enumerate}"
+    ]
+  },
+  "blod": {
+    "prefix": "blod",
+    "body": "\\textbf{$1}"
+  }
+}
