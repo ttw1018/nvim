@@ -10,7 +10,7 @@ o.backup = false
 o.cursorline = true
 o.background = "light"
 o.shiftwidth = 2
-o.spell = true
+o.smoothscroll = true
 
 o.foldlevel = 99
 o.foldlevelstart = 99
@@ -32,6 +32,7 @@ vim.diagnostic.config({
 autocmd("FileType", {
   pattern = { "tex" },
   callback = function()
+    o.spell = true
     o.shiftwidth = 8
   end,
 })
