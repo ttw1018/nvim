@@ -84,7 +84,29 @@ return {
         },
         pyright = {},
         clangd = {},
-        volar = {},
+        volar = {
+          init_options = {
+            typescript = {
+              tsdk = "/usr/lib/node_modules/typescript/lib",
+            },
+          },
+        },
+        ts_ls = {
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = "/usr/lib/node_modules/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue" },
+              },
+            },
+          },
+          filetypes = {
+            "javascript",
+            "typescript",
+            "vue",
+          },
+        },
       },
     },
 
