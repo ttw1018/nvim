@@ -1,3 +1,11 @@
+local node_modules = function()
+  if jit.os == "OSX" then
+    return "/Users/twtang/.localbin/node-v22.12.0-darwin-x64/lib/node_modules"
+  else
+    return "/usr/lib/node_modules"
+  end
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -87,7 +95,7 @@ return {
         volar = {
           init_options = {
             typescript = {
-              tsdk = "/usr/lib/node_modules/typescript/lib",
+              tsdk = node_modules() .. "/typescript/lib",
             },
           },
         },
@@ -96,7 +104,7 @@ return {
             plugins = {
               {
                 name = "@vue/typescript-plugin",
-                location = "/usr/lib/node_modules/@vue/typescript-plugin",
+                location = node_modules() .. "/@vue/typescript-plugin",
                 languages = { "javascript", "typescript", "vue" },
               },
             },
