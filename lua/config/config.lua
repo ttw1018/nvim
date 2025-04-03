@@ -11,6 +11,8 @@ o.cursorline = true
 o.background = "light"
 o.shiftwidth = 2
 o.smoothscroll = true
+o.breakindent = true
+o.linebreak = true
 
 o.foldlevel = 99
 o.foldlevelstart = 99
