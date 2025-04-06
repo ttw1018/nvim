@@ -6,6 +6,27 @@ local node_modules = function()
   end
 end
 
+local pdviewer = function()
+  if jit.os == "OSX" then
+    return {
+      executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
+      args = {
+        "-r",
+        "-b",
+        "-g",
+        "%l",
+        "%p",
+        "%f",
+      },
+    }
+  else
+    return {
+      executable = "zathura",
+      args = { "--synctex-forward", "%l:1:%f", "%p" },
+    }
+  end
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -25,12 +46,6 @@ return {
         map("n", "<leader>k", vim.lsp.buf.hover, opts)
         map("n", "<leader>d", vim.diagnostic.open_float, opts)
         -- map("n", "<leader>fm", vim.lsp.buf.format, opts)
-
-        local ft = vim.bo.filetype
-        if ft == "tex" then
-          --   map("n", "<leader>ll", "<cmd>TexlabBuild<cr>")
-          map("n", "<leader>jj", "<cmd>TexlabForward<cr>")
-        end
       end,
 
       servers = {
@@ -62,31 +77,9 @@ return {
                   "-xelatex",
                   "%f",
                 },
-                -- executable = "tectonic",
-                -- args = {
-                --   "-X",
-                --   "compile",
-                --   "%f",
-                --   "--synctex",
-                --   "--keep-logs",
-                --   "--keep-intermediates",
-                --   "--outdir",
-                --   "build",
-                -- },
-
                 pdfDirectory = "build",
               },
-              forwardSearch = {
-                executable = "/Applications/Skim.app/Contents/SharedSupport/displayline",
-                args = {
-                  "-r",
-                  "-b",
-                  "-g",
-                  "%l",
-                  "%p",
-                  "%f",
-                },
-              },
+              forwardSearch = pdviewer(),
             },
           },
         },
@@ -143,7 +136,7 @@ return {
     version = "*",
     init = function()
       local g = vim.g
-      g.vimtex_view_method = "skim"
+      -- g.vimtex_view_method = "zathura"
       g.vimtex_compiler_latexmk_engines = {
         _ = "-xelatex",
       }
@@ -164,9 +157,6 @@ return {
         -- "Warning",
         -- "Missing",
       }
-      local map = vim.keymap.set
-      map("n", "<leader>ll", "<cmd>VimtexCompile<cr>")
-      -- map("n", "<leader>jj", "<cmd>VimtexView<cr>")
     end,
   },
 }
