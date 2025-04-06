@@ -24,13 +24,6 @@ return {
         map("n", "<leader>rn", vim.lsp.buf.rename, opts)
         map("n", "<leader>k", vim.lsp.buf.hover, opts)
         map("n", "<leader>d", vim.diagnostic.open_float, opts)
-        -- map("n", "<leader>fm", vim.lsp.buf.format, opts)
-
-        local ft = vim.bo.filetype
-        if ft == "tex" then
-          --   map("n", "<leader>ll", "<cmd>TexlabBuild<cr>")
-          map("n", "<leader>jj", "<cmd>TexlabForward<cr>")
-        end
       end,
 
       servers = {
@@ -62,17 +55,6 @@ return {
                   "-xelatex",
                   "%f",
                 },
-                -- executable = "tectonic",
-                -- args = {
-                --   "-X",
-                --   "compile",
-                --   "%f",
-                --   "--synctex",
-                --   "--keep-logs",
-                --   "--keep-intermediates",
-                --   "--outdir",
-                --   "build",
-                -- },
 
                 pdfDirectory = "build",
               },
@@ -143,7 +125,6 @@ return {
     version = "*",
     init = function()
       local g = vim.g
-      g.vimtex_view_method = "skim"
       g.vimtex_compiler_latexmk_engines = {
         _ = "-xelatex",
       }
@@ -160,13 +141,7 @@ return {
         },
       }
       g.vimtex_quickfix_open_on_warning = 0
-      g.vimtex_quickfix_ignore_filters = {
-        -- "Warning",
-        -- "Missing",
-      }
-      local map = vim.keymap.set
-      map("n", "<leader>ll", "<cmd>VimtexCompile<cr>")
-      -- map("n", "<leader>jj", "<cmd>VimtexView<cr>")
+      g.vimtex_quickfix_ignore_filters = {}
     end,
   },
 }
