@@ -24,6 +24,12 @@ return {
         map("n", "<leader>rn", vim.lsp.buf.rename, opts)
         map("n", "<leader>k", vim.lsp.buf.hover, opts)
         map("n", "<leader>d", vim.diagnostic.open_float, opts)
+
+        if vim.bo.filetype == "tex" then
+          map("n", "<leader>jj", "<cmd>TexlabForward<cr>")
+          map("n", "<leader>rn", "<cmd>TexlabChangeEnvironment<cr>")
+          map("n", "<leader>ll", "<cmd>VimtexCompile<cr>")
+        end
       end,
 
       servers = {

@@ -36,11 +36,6 @@ autocmd("FileType", {
   callback = function()
     o.spell = true
     o.shiftwidth = 8
-
-    local map = vim.keymap.set
-    map("n", "<leader>jj", "<cmd>TexlabForward<cr>")
-    map("n", "<leader>rn", "<cmd>TexlabChangeEnvironment<cr>")
-    map("n", "<leader>ll", "<cmd>VimtexCompile<cr>")
   end,
 })
 
