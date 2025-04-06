@@ -140,7 +140,7 @@ local function config()
     hl = function()
       if vim.bo.modified then
         -- use `force` because we need to override the child's hl foreground
-        return { fg = "cyan", bold = true, force = true, bg = "bg" }
+        return { bold = true, force = true, bg = "bg" }
       end
     end,
   }

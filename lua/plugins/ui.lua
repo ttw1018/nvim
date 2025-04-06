@@ -48,6 +48,7 @@ return {
       indent = { enabled = true },
       input = { enabled = true },
       scroll = { enabled = true },
+      notifier = { enabled = true },
     },
   },
   {

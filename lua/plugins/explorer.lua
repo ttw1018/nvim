@@ -15,6 +15,7 @@ return {
     },
     config = function()
       require("fzf-lua").setup({
+        "default",
         fzf_colors = {
           true,
         },
