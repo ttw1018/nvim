@@ -43,6 +43,9 @@ return {
     "folke/snacks.nvim",
     version = "*",
     event = "VeryLazy",
+    keys = {
+      { "<leader>mp", "<cmd>lua Snacks.notifier.show_history()<cr>" },
+    },
     opts = {
       bigfile = { enabled = true },
       indent = { enabled = true },
