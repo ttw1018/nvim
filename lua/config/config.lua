@@ -59,7 +59,7 @@ autocmd("BufReadPost", {
 })
 
 autocmd("BufEnter", {
-  pattern = "*dap*",
+  pattern = "*dap-repl*",
   callback = function()
     vim.keymap.set("n", "c", "<cmd>DapContinue<cr>", { buffer = true })
     vim.keymap.set("n", "n", "<cmd>DapStepOver<cr>", { buffer = true })

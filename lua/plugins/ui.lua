@@ -44,7 +44,11 @@ return {
     version = "*",
     event = "VeryLazy",
     keys = {
-      { "<leader>mp", "<cmd>lua Snacks.notifier.show_history()<cr>" },
+      {
+        "<leader>mp",
+        "<cmd>lua Snacks.notifier.show_history()<cr>",
+        desc = "show message history",
+      },
     },
     opts = {
       bigfile = { enabled = true },
