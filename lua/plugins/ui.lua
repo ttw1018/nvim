@@ -92,4 +92,32 @@ return {
       end,
     },
   },
+  {
+    "folke/noice.nvim",
+    version = "*",
+    event = "VeryLazy",
+    opts = {
+      cmdline = {
+        format = {
+          search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
+          search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
+        },
+      },
+      views = {
+        cmdline_popup = {
+          position = {
+            row = 5,
+            col = "50%",
+          },
+          size = {
+            width = "60%",
+            height = "auto",
+          },
+        },
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+  },
 }
