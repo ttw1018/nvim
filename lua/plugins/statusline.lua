@@ -463,6 +463,41 @@ local function config()
     false
   )
 
+  local GitSign = {
+    init = function(self)
+      self.gitsign_nid = vim.api.nvim_get_namespaces()["gitsigns_signs_"] or 0
+      self.sign = "%s"
+      self.color = nil
+      if self.gitsign_nid == 0 then
+        return
+      end
+      local lnum = vim.v.lnum
+      if vim.v.virtnum ~= 0 then
+        local signs = vim.api.nvim_buf_get_extmarks(
+          0,
+          self.gitsign_nid,
+          { lnum - 1, 0 },
+          { lnum - 1, 0 },
+          { details = true, hl_name = true, type = "sign", limit = 1 }
+        )
+        for _, sign in ipairs(signs) do
+          local detail = sign[4]
+          if detail ~= nil then
+            self.sign = detail["sign_text"]
+            self.color = vim.api.nvim_get_hl(0, { name = detail["sign_hl_group"] })
+          end
+        end
+      end
+    end,
+
+    provider = function(self)
+      return self.sign
+    end,
+    hl = function(self)
+      return self.color
+    end,
+  }
+
   return {
     statusline = {
       BoundaryLeft,
@@ -480,6 +515,9 @@ local function config()
     },
     tabline = {
       BufferLine,
+    },
+    statuscolumn = {
+      GitSign,
     },
   }
 end
