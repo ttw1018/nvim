@@ -6,6 +6,14 @@ local node_modules = function()
   end
 end
 
+local latex_pdf_view = function()
+  if jit.os == "OSX" then
+    return "skim"
+  else
+    return "zathura"
+  end
+end
+
 local pdviewer = function()
   if jit.os == "OSX" then
     return {
@@ -51,7 +59,6 @@ return {
           map("n", "<leader>rn", "<cmd>TexlabChangeEnvironment<cr>")
           map("n", "<leader>ll", "<cmd>VimtexCompile<cr>")
         end
-
       end,
 
       servers = {
@@ -145,6 +152,7 @@ return {
       g.vimtex_compiler_latexmk_engines = {
         _ = "-xelatex",
       }
+      g.vimtex_view_method = latex_pdf_view()
       g.vimtex_compiler_latexmk = {
         aux_dir = "build",
         out_dir = "build",
