@@ -13,6 +13,8 @@ o.shiftwidth = 2
 o.smoothscroll = true
 o.breakindent = true
 o.linebreak = true
+o.number = true
+o.relativenumber = true
 
 o.foldlevel = 99
 o.foldlevelstart = 99

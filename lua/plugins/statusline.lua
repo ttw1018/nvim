@@ -463,16 +463,26 @@ local function config()
     false
   )
 
-  local GitSign = {
+  local StatusColumn = {
+    condition = function()
+      return vim.bo.filetype ~= "NvimTree"
+    end,
+    static = {
+      gitsign_nid = nil,
+    },
     init = function(self)
-      self.gitsign_nid = vim.api.nvim_get_namespaces()["gitsigns_signs_"] or 0
-      self.sign = "%s"
+      self.sign = "%=%{v:relnum?v:relnum:v:lnum} %s"
       self.color = nil
-      if self.gitsign_nid == 0 then
-        return
-      end
-      local lnum = vim.v.lnum
+
       if vim.v.virtnum ~= 0 then
+        self.sign = ""
+        if self.gitsign_nid == nil then
+          self.gitsign_nid = vim.api.nvim_get_namespaces()["gitsigns_signs_"]
+          if self.gitsign_nid == nil then
+            return
+          end
+        end
+        local lnum = vim.v.lnum
         local signs = vim.api.nvim_buf_get_extmarks(
           0,
           self.gitsign_nid,
@@ -483,7 +493,7 @@ local function config()
         for _, sign in ipairs(signs) do
           local detail = sign[4]
           if detail ~= nil then
-            self.sign = detail["sign_text"]
+            self.sign = "%=" .. detail["sign_text"]
             self.color = vim.api.nvim_get_hl(0, { name = detail["sign_hl_group"] })
           end
         end
@@ -517,7 +527,7 @@ local function config()
       BufferLine,
     },
     statuscolumn = {
-      GitSign,
+      StatusColumn,
     },
   }
 end
