@@ -121,6 +121,8 @@ return {
             "vue",
           },
         },
+        gopls = {},
+        rust_analyzer = {},
       },
     },
 
