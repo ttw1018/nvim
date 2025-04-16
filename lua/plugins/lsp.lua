@@ -115,11 +115,6 @@ return {
               },
             },
           },
-          filetypes = {
-            "javascript",
-            "typescript",
-            "vue",
-          },
         },
         gopls = {},
         rust_analyzer = {},

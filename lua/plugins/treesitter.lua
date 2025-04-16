@@ -27,7 +27,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    ft = { "vue", "tsx", "jsx", "html" },
+    ft = { "vue", "typescriptreact", "javascriptreact", "html" },
     opts = {
       opts = {
         -- Defaults
