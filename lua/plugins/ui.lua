@@ -55,7 +55,7 @@ return {
       indent = { enabled = true },
       input = { enabled = true },
       scroll = { enabled = true },
-      notifier = { enabled = true },
+      notifier = { enabled = true, top_down = false },
     },
   },
   {
