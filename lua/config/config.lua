@@ -13,9 +13,10 @@ o.shiftwidth = 2
 o.tabstop = 2
 o.expandtab = true
 o.smartindent = true
-o.smoothscroll = true
+o.autoindent = true
 o.breakindent = true
-o.linebreak = true
+-- o.linebreak = true
+o.smoothscroll = true
 o.number = true
 o.relativenumber = true
 
@@ -39,7 +40,6 @@ vim.diagnostic.config({
 autocmd("FileType", {
   pattern = { "tex" },
   callback = function()
-    o.spell = true
     o.shiftwidth = 8
     vim.keymap.set("n", "<leader>ll", "<cmd>VimtexCompile<cr>", { buffer = true })
     vim.keymap.set("n", "<leader>jj", "<cmd>TexlabForward<cr>", { buffer = true })

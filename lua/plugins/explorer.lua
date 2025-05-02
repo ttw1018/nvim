@@ -36,17 +36,16 @@ return {
       })
     end,
   },
+
   {
-    "numToStr/Navigator.nvim",
-    version = "*",
+    "swaits/zellij-nav.nvim",
+    lazy = true,
     keys = {
-      { "<C-h>", "<cmd>NavigatorLeft<cr>" },
-      { "<C-l>", "<cmd>NavigatorRight<cr>" },
-      { "<C-k>", "<cmd>NavigatorUp<cr>" },
-      { "<C-j>", "<cmd>NavigatorDown<cr>" },
+      { "<c-h>", "<cmd>ZellijNavigateLeft<cr>", { silent = true, desc = "navigate left" } },
+      { "<c-j>", "<cmd>ZellijNavigateDown<cr>", { silent = true, desc = "navigate down" } },
+      { "<c-k>", "<cmd>ZellijNavigateUp<cr>", { silent = true, desc = "navigate up" } },
+      { "<c-l>", "<cmd>ZellijNavigateRight<cr>", { silent = true, desc = "navigate right" } },
     },
-    config = function()
-      require("Navigator").setup()
-    end,
+    opts = {},
   },
 }

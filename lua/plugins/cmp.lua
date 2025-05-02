@@ -2,6 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     event = { "BufRead" },
+    dependencies = { "fang2hou/blink-copilot" },
     version = "*",
     opts = {
       keymap = {
@@ -20,9 +21,17 @@ return {
           if ft == "tex" or ft == "markdown" then
             return { "lsp", "path", "snippets" }
           else
-            return { "lsp", "buffer", "path", "snippets" }
+            return { "lsp", "copilot", "buffer", "path", "snippets" }
           end
         end,
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
+        },
       },
       completion = {
         list = {
@@ -64,6 +73,20 @@ return {
       format_on_save = {
         timeout_ms = 500,
         lsp_format = "fallback",
+      },
+    },
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
       },
     },
   },

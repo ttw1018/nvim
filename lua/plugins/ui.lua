@@ -35,6 +35,21 @@ return {
   },
 
   {
+    "neanias/everforest-nvim",
+    version = "*",
+    lazy = true,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+      local everforest = require("everforest")
+      everforest.setup({
+        background = "hard",
+      })
+      everforest.load()
+    end,
+  },
+
+  {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
   },
@@ -68,19 +83,20 @@ return {
     end,
     opts = {
       signs = {
-        add = { text = "▎" },
-        change = { text = "▎" },
+        -- "┃" "▎"
+        add = { text = "┃" },
+        change = { text = "┃" },
         delete = { text = "" },
         topdelete = { text = "" },
-        changedelete = { text = "▎" },
-        untracked = { text = "▎" },
+        changedelete = { text = "┃" },
+        untracked = { text = "┃" },
       },
       signs_staged = {
-        add = { text = "▎" },
-        change = { text = "▎" },
+        add = { text = "┃" },
+        change = { text = "┃" },
         delete = { text = "" },
         topdelete = { text = "" },
-        changedelete = { text = "▎" },
+        changedelete = { text = "┃" },
       },
       on_attach = function()
         local gitsigns = require("gitsigns")
