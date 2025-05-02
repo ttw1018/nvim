@@ -118,6 +118,7 @@ return {
         },
         gopls = {},
         rust_analyzer = {},
+        tailwindcss = {},
       },
     },
 

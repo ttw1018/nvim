@@ -1,6 +1,7 @@
 local function config()
   local conditions = require("heirline.conditions")
   local utils = require("heirline.utils")
+  local bg = "bg"
 
   local ViMode = {
     init = function(self)
@@ -65,7 +66,7 @@ local function config()
     end,
     hl = function(self)
       local mode = self.mode:sub(1, 1) -- get only the first mode character
-      return { fg = self.mode_colors[mode], bold = true, bg = "bg" }
+      return { fg = self.mode_colors[mode], bold = true, bg = bg }
     end,
     -- Re-evaluate the component only on ModeChanged event!
     -- Also allows the statusline to be re-evaluated when entering operator-pending mode
@@ -83,11 +84,7 @@ local function config()
     init = function(self)
       self.filename = vim.api.nvim_buf_get_name(0)
     end,
-    hl = function()
-      return {
-        bg = "bg",
-      }
-    end,
+    hl = { bg = bg },
   }
   -- We can now define some children separately and add them later
 
@@ -116,7 +113,7 @@ local function config()
       end
       return filename
     end,
-    hl = { fg = "fg", bg = "bg" },
+    hl = { fg = "fg", bg = bg },
   }
 
   local FileFlags = {
@@ -125,14 +122,14 @@ local function config()
         return vim.bo.modified
       end,
       provider = "[+]",
-      hl = { fg = "green", bg = "bg" },
+      hl = { fg = "green", bg = bg },
     },
     {
       condition = function()
         return not vim.bo.modifiable or vim.bo.readonly
       end,
       provider = " ",
-      hl = { fg = "orange", bg = "bg" },
+      hl = { fg = "orange", bg = bg },
     },
   }
 
@@ -140,7 +137,7 @@ local function config()
     hl = function()
       if vim.bo.modified then
         -- use `force` because we need to override the child's hl foreground
-        return { bold = true, force = true, bg = "bg" }
+        return { bold = true, force = true, bg = bg }
       end
     end,
   }
@@ -158,7 +155,7 @@ local function config()
   --   provider = function()
   --     return string.upper(vim.bo.filetype)
   --   end,
-  --   hl = { fg = utils.get_highlight("Type").fg, bold = true, bg = "bg" },
+  --   hl = { fg = utils.get_highlight("Type").fg, bold = true, bg = bg },
   -- }
 
   local FileSize = {
@@ -173,7 +170,7 @@ local function config()
       local i = math.floor((math.log(fsize) / math.log(1024)))
       return string.format("%.1f%s", fsize / math.pow(1024, i), suffix[i + 1])
     end,
-    hl = { fg = "fg", bg = "bg" },
+    hl = { fg = "fg", bg = bg },
   }
   local LSPActive = {
     condition = conditions.lsp_attached,
@@ -190,7 +187,7 @@ local function config()
       end
       return " [" .. table.concat(names, " ") .. "]"
     end,
-    hl = { fg = "green", bold = true, bg = "bg" },
+    hl = { fg = "green", bold = true, bg = bg },
   }
   local Diagnostics = {
 
@@ -214,36 +211,36 @@ local function config()
 
     {
       provider = " ",
-      hl = { bg = "bg" },
+      hl = { bg = bg },
     },
     {
       provider = function(self)
         -- 0 is just another output, we can decide to print it or not!
         return self.errors > 0 and (self.error_icon .. self.errors .. " ")
       end,
-      hl = { fg = "#ec5f67", bg = "bg" },
+      hl = { fg = "#ec5f67", bg = bg },
     },
     {
       provider = function(self)
         return self.warnings > 0 and (self.warn_icon .. self.warnings .. " ")
       end,
-      hl = { fg = "#ECBE7B", bg = "bg" },
+      hl = { fg = "#ECBE7B", bg = bg },
     },
     {
       provider = function(self)
         return self.info > 0 and (self.info_icon .. self.info .. " ")
       end,
-      hl = { fg = "#008080", bg = "bg" },
+      hl = { fg = "#008080", bg = bg },
     },
     {
       provider = function(self)
         return self.hints > 0 and (self.hint_icon .. self.hints .. " ")
       end,
-      hl = { bg = "bg" },
+      hl = { bg = bg },
     },
     {
       provider = " ",
-      hl = { bg = "bg" },
+      hl = { bg = bg },
     },
   }
 
@@ -251,21 +248,21 @@ local function config()
     provider = "▊ ",
     hl = {
       fg = "#51afef",
-      bg = "bg",
+      bg = bg,
     },
   }
   BoundaryRight = {
     provider = " ▊",
     hl = {
       fg = "#51afef",
-      bg = "bg",
+      bg = bg,
     },
   }
 
   local Ruler = {
     provider = "%9(%l/%L%):%2c %P",
     hl = {
-      bg = "bg",
+      bg = bg,
     },
   }
 
@@ -277,7 +274,7 @@ local function config()
       self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
     end,
 
-    hl = { fg = "orange", bg = "bg" },
+    hl = { fg = "orange", bg = bg },
 
     { -- git branch name
       provider = function(self)
@@ -285,28 +282,28 @@ local function config()
           return " " .. self.status_dict.head .. " "
         end
       end,
-      hl = { bold = true, bg = "bg" },
+      hl = { bold = true, bg = bg },
     },
     {
       provider = function(self)
         local count = self.status_dict.added or 0
         return count > 0 and (" " .. count .. " ")
       end,
-      hl = { fg = "green", bg = "bg" },
+      hl = { fg = "green", bg = bg },
     },
     {
       provider = function(self)
         local count = self.status_dict.changed or 0
         return count > 0 and (" " .. count .. " ")
       end,
-      hl = { fg = "orange", bg = "bg" },
+      hl = { fg = "orange", bg = bg },
     },
     {
       provider = function(self)
         local count = self.status_dict.removed or 0
         return count > 0 and (" " .. count .. " ")
       end,
-      hl = { fg = "red", bg = "bg" },
+      hl = { fg = "red", bg = bg },
     },
   }
   local TablineBufnr = {
@@ -513,13 +510,13 @@ local function config()
       BoundaryLeft,
       ViMode,
       Git,
-      { provider = "%=", hl = { bg = "bg" } },
+      { provider = "%=", hl = { bg = bg } },
       FileSize,
       FileNameBlock,
-      { provider = "%=", hl = { bg = "bg" } },
+      { provider = "%=", hl = { bg = bg } },
       LSPActive,
       Diagnostics,
-      { provider = "%=", hl = { bg = "bg" } },
+      { provider = "%=", hl = { bg = bg } },
       Ruler,
       BoundaryRight,
     },

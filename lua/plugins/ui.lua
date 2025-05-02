@@ -2,6 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     version = "*",
+    priority = 1000,
     lazy = false,
     config = function()
       local tokyonight = require("tokyonight")
@@ -36,15 +37,11 @@ return {
 
   {
     "neanias/everforest-nvim",
-    version = "*",
+    version = false,
     lazy = true,
-    priority = 1000, -- make sure to load this before all the other start plugins
-    -- Optional; default configuration will be used if setup isn't called.
+    priority = 1000,
     config = function()
       local everforest = require("everforest")
-      everforest.setup({
-        background = "hard",
-      })
       everforest.load()
     end,
   },

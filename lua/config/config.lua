@@ -8,7 +8,6 @@ o.undofile = true
 o.swapfile = false
 o.backup = false
 o.cursorline = true
-o.background = "light"
 o.shiftwidth = 2
 o.tabstop = 2
 o.expandtab = true
