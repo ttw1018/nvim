@@ -40,8 +40,13 @@ return {
     "neovim/nvim-lspconfig",
     event = "BufRead",
     version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic"
+    },
     opts = {
-      on_attach = function()
+      on_attach = function(client, buffnr)
+        local navic = require("nvim-navic")
+        navic.attach(client, buffnr)
         local map = vim.keymap.set
         local opts = { noremap = true, silent = true }
 

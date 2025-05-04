@@ -29,6 +29,9 @@ return {
           hl.GitSignsDelete = {
             fg = "red",
           }
+          hl.WinBar = {
+            nil,
+          }
         end,
       })
       tokyonight.load()
@@ -42,6 +45,9 @@ return {
     priority = 1000,
     config = function()
       local everforest = require("everforest")
+      everforest.setup({
+        background = "hard",
+      })
       everforest.load()
     end,
   },

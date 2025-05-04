@@ -504,6 +504,15 @@ local function config()
       return self.color
     end,
   }
+  local Navic = {
+    condition = function()
+      return require("nvim-navic").is_available()
+    end,
+    provider = function()
+      return require("nvim-navic").get_location({ highlight = true })
+    end,
+    update = "CursorMoved",
+  }
 
   return {
     statusline = {
@@ -525,6 +534,20 @@ local function config()
     },
     statuscolumn = {
       StatusColumn,
+    },
+
+    winbar = {
+      FileNameBlock,
+      { provider = "  " },
+      Navic,
+    },
+    opts = {
+      disable_winbar_cb = function(args)
+        return conditions.buffer_matches({
+          buftype = { "nofile", "prompt", "help", "quickfix", "NvimTree", "terminal" },
+          filetype = { "^git.*" },
+        }, args.buf)
+      end,
     },
   }
 end
