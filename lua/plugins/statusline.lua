@@ -122,7 +122,7 @@ local function config()
         return vim.bo.modified
       end,
       provider = "[+]",
-      hl = { fg = "green", bg = bg },
+      hl = { fg = "green", bg = bg, bold = true },
     },
     {
       condition = function()
@@ -246,13 +246,7 @@ local function config()
 
   BoundaryLeft = {
     provider = "▊ ",
-    hl = {
-      fg = "#51afef",
-      bg = bg,
-    },
-  }
-  BoundaryRight = {
-    provider = " ▊",
+    -- provider = "█",
     hl = {
       fg = "#51afef",
       bg = bg,
@@ -260,7 +254,7 @@ local function config()
   }
 
   local Ruler = {
-    provider = "%9(%l/%L%):%2c %P",
+    provider = "%9(%l/%L%):%2c ",
     hl = {
       bg = bg,
     },
@@ -527,7 +521,6 @@ local function config()
       Diagnostics,
       { provider = "%=", hl = { bg = bg } },
       Ruler,
-      BoundaryRight,
     },
     tabline = {
       BufferLine,
