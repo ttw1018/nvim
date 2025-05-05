@@ -22,21 +22,47 @@ return {
       })
     end,
   },
+
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
     version = "*",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    },
+    lazy = true,
     keys = {
-      { "<leader>e", "<cmd>NvimTreeToggle<cr>" },
+      { "<leader>e", "<cmd>Neotree<cr>" },
     },
     config = function()
-      require("nvim-tree").setup({
-        actions = {
-          open_file = {
-            quit_on_open = true,
-          },
+      local uname = jit.os
+      local system_open_cmd = nil
+      if uname == "OSX" then
+        system_open_cmd = "open"
+      elseif uname == "Linux" then
+        system_open_cmd = "xdg-open"
+      else
+        system_open_cmd = "open"
+      end
+      require("neo-tree").setup({
+        sources = {
+          "filesystem",
+          "buffers",
+          "git_status",
+          "document_symbols",
         },
-        view = {
-          side = "right",
+        filesystem = {
+          window = {
+            position = "right",
+            mappings = {
+              ["O"] = function(state)
+                local node = state.tree:get_node()
+                local path = node:get_id()
+                vim.fn.jobstart({ system_open_cmd, path }, { detach = true })
+              end,
+            },
+          },
         },
       })
     end,

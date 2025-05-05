@@ -39,7 +39,6 @@ vim.diagnostic.config({
 autocmd("FileType", {
   pattern = { "tex" },
   callback = function()
-    o.shiftwidth = 8
     vim.keymap.set("n", "<leader>ll", "<cmd>VimtexCompile<cr>", { buffer = true })
     vim.keymap.set("n", "<leader>jj", "<cmd>TexlabForward<cr>", { buffer = true })
   end,

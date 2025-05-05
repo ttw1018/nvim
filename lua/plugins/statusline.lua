@@ -456,7 +456,7 @@ local function config()
 
   local StatusColumn = {
     condition = function()
-      return vim.bo.filetype ~= "NvimTree"
+      return vim.bo.filetype ~= "neo-tree"
     end,
     static = {
       gitsign_nid = nil,
