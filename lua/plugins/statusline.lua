@@ -1,7 +1,7 @@
 local function config()
   local conditions = require("heirline.conditions")
   local utils = require("heirline.utils")
-  local bg = "bg"
+  local bg = nil
 
   local ViMode = {
     init = function(self)
@@ -176,10 +176,6 @@ local function config()
     condition = conditions.lsp_attached,
     update = { "LspAttach", "LspDetach" },
 
-    -- You can keep it simple,
-    -- provider = " [LSP]",
-
-    -- Or complicate things a bit and get the servers names
     provider = function()
       local names = {}
       for _, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
@@ -302,7 +298,7 @@ local function config()
   }
   local TablineBufnr = {
     provider = function(self)
-      return tostring(self.bufnr) .. ". "
+      return tostring(self.bufnr) .. "."
     end,
     hl = "Comment",
   }

@@ -8,6 +8,7 @@ return {
       local tokyonight = require("tokyonight")
       tokyonight.setup({
         style = "day",
+        transparent = true,
         on_highlights = function(hl, _)
           hl.TabLineFill = {
             bg = "#E4E4E4",
@@ -29,9 +30,9 @@ return {
           hl.GitSignsDelete = {
             fg = "red",
           }
-          hl.WinBar = {
-            nil,
-          }
+          -- hl.WinBar = {
+          --   nil,
+          -- }
         end,
       })
       tokyonight.load()
@@ -46,7 +47,7 @@ return {
     config = function()
       local everforest = require("everforest")
       everforest.setup({
-        background = "hard",
+        background = "light",
       })
       everforest.load()
     end,
