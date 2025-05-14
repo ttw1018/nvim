@@ -41,7 +41,7 @@ return {
     event = "BufRead",
     version = "*",
     dependencies = {
-      "SmiteshP/nvim-navic"
+      "SmiteshP/nvim-navic",
     },
     opts = {
       on_attach = function(client, buffnr)
@@ -50,11 +50,11 @@ return {
         local map = vim.keymap.set
         local opts = { noremap = true, silent = true }
 
-        map("n", "gd", vim.lsp.buf.definition, opts)
-        map("n", "gi", vim.lsp.buf.implementation, opts)
-        map("n", "gr", vim.lsp.buf.references, opts)
+        map("n", "gd", "<CMD>FzfLua lsp_definitions<CR>", opts)
+        map("n", "gi", "<CMD>FzfLua lsp_implementations<CR>", opts)
+        map("n", "gr", "<CMD>FzfLua lsp_references<CR>", opts)
 
-        map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        map("n", "<leader>ca", "<CMD>FzfLua lsp_code_actions<CR>", opts)
         map("n", "<leader>rn", vim.lsp.buf.rename, opts)
         map("n", "<leader>k", vim.lsp.buf.hover, opts)
         map("n", "<leader>d", vim.diagnostic.open_float, opts)
