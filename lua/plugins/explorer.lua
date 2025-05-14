@@ -33,7 +33,7 @@ return {
     },
     lazy = true,
     keys = {
-      { "<leader>e", "<cmd>Neotree<cr>" },
+      { "<leader>e", "<cmd>Neotree toggle<cr>" },
     },
     config = function()
       local uname = jit.os
@@ -46,15 +46,10 @@ return {
         system_open_cmd = "open"
       end
       require("neo-tree").setup({
-        sources = {
-          "filesystem",
-          "buffers",
-          "git_status",
-          "document_symbols",
-        },
         filesystem = {
           window = {
             position = "right",
+            width = 25,
             mappings = {
               ["O"] = function(state)
                 local node = state.tree:get_node()
@@ -66,17 +61,5 @@ return {
         },
       })
     end,
-  },
-
-  {
-    "swaits/zellij-nav.nvim",
-    lazy = true,
-    keys = {
-      { "<c-h>", "<cmd>ZellijNavigateLeft<cr>", { silent = true, desc = "navigate left" } },
-      { "<c-j>", "<cmd>ZellijNavigateDown<cr>", { silent = true, desc = "navigate down" } },
-      { "<c-k>", "<cmd>ZellijNavigateUp<cr>", { silent = true, desc = "navigate up" } },
-      { "<c-l>", "<cmd>ZellijNavigateRight<cr>", { silent = true, desc = "navigate right" } },
-    },
-    opts = {},
   },
 }
