@@ -3,7 +3,7 @@ return {
     "folke/tokyonight.nvim",
     version = "*",
     priority = 1000,
-    lazy = false,
+    lazy = true,
     config = function()
       local tokyonight = require("tokyonight")
       tokyonight.setup({
@@ -50,6 +50,49 @@ return {
         background = "light",
       })
       everforest.load()
+    end,
+  },
+
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local nightfox = require("nightfox")
+      nightfox.setup({
+        options = {
+          transparent = false,
+          styles = {
+            comments = "italic",
+            keywords = "bold",
+            types = "italic,bold",
+          },
+        },
+        groups = {
+          all = {
+            GitSignsAdd = {
+              fg = "green",
+            },
+            GitSignsChange = {
+              fg = "orange",
+            },
+            GitSignsDelete = {
+              fg = "red",
+            },
+          },
+        },
+      })
+      vim.cmd.colorscheme("dayfox")
+    end,
+  },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    lazy = true,
+    config = function()
+      vim.cmd.colorscheme("catppuccin-latte")
     end,
   },
 

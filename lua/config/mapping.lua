@@ -2,8 +2,8 @@ local map = vim.keymap.set
 
 map("i", "jk", "<Esc>", { silent = true, noremap = true })
 
-map({ "n", "v" }, "J", "5j", { silent = true, noremap = true })
-map({ "n", "v" }, "K", "5k", { silent = true, noremap = true })
+map({ "n", "v" }, "J", "<C-d>", { silent = true, noremap = true })
+map({ "n", "v" }, "K", "<C-u>", { silent = true, noremap = true })
 map({ "n", "v" }, "L", "g$", { silent = true, noremap = true })
 map({ "n", "v" }, "H", "g^", { silent = true, noremap = true })
 map({ "n" }, "<leader><cr>", "<cmd>noh<cr>", { silent = true, noremap = true })

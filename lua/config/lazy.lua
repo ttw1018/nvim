@@ -31,8 +31,9 @@ require("lazy").setup({
   -- colorscheme that will be used when installing plugins.
   install = {
     colorscheme = {
-      "tokyonight-day",
+      -- "tokyonight-day",
       -- "vscode",
+      "dayfox",
     },
   },
   -- automatically check for plugin updates

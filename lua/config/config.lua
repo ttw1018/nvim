@@ -7,7 +7,7 @@ o.clipboard = "unnamedplus"
 o.undofile = true
 o.swapfile = false
 o.backup = false
-o.cursorline = true
+-- o.cursorline = true
 o.shiftwidth = 2
 o.tabstop = 2
 o.expandtab = true
@@ -18,6 +18,7 @@ o.breakindent = true
 o.smoothscroll = true
 o.number = true
 o.relativenumber = true
+o.scrolloff = 5
 
 o.foldlevel = 99
 o.foldlevelstart = 99
@@ -58,6 +59,7 @@ autocmd("BufReadPost", {
     if last_pos > 1 and last_pos <= vim.fn.line("$") then
       vim.api.nvim_win_set_cursor(0, { last_pos, 0 })
     end
+    vim.o.scroll = 5
   end,
 })
 
