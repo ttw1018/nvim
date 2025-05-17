@@ -2,9 +2,9 @@ return {
   {
     "mfussenegger/nvim-dap",
     keys = {
-      { "<leader>b", "<cmd>DapToggleBreakpoint<cr>" },
-      { "<leader>5", "<cmd>DapContinue<cr>" },
-      { "<leader>td", "<cmd>DapToggleRepl<cr>" },
+      { "<leader>b", "<cmd>DapToggleBreakpoint<cr>", desc = "debug breakpoint" },
+      { "<leader>5", "<cmd>DapContinue<cr>", desc = "debug continue" },
+      { "<leader>td", "<cmd>DapToggleRepl<cr>", "debug toggle repl" },
     },
     config = function()
       local dap = require("dap")

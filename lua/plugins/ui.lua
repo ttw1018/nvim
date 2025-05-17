@@ -150,8 +150,11 @@ return {
         local map = vim.keymap.set
         map("n", "<leader>gd", function()
           gitsigns.diffthis("~")
-        end)
-        map("n", "<leader>gp", gitsigns.preview_hunk_inline)
+        end, { desc = "git diff file" })
+        map("n", "<leader>gp", gitsigns.preview_hunk_inline, { desc = "git preview hunk" })
+        map("n", "<leader>gr", function()
+          gitsigns.reset_hunk()
+        end, { desc = "git reset hunk" })
       end,
     },
   },
@@ -182,5 +185,31 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
     },
+  },
+  {
+    "folke/which-key.nvim",
+    enabled = false,
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+    config = function()
+      local wk = require("which-key")
+      wk.add({
+        { "<leader>f", group = "file" },
+        { "<leader>g", group = "git" },
+        { "<leader>m", group = "message" },
+        { "<leader>m", group = "toggle" },
+        { "<leader>c", group = "lsp code action" },
+        { "<leader>r", group = "lsp rename" },
+      })
+    end,
   },
 }

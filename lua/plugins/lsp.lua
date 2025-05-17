@@ -48,21 +48,40 @@ return {
         local navic = require("nvim-navic")
         navic.attach(client, buffnr)
         local map = vim.keymap.set
-        local opts = { noremap = true, silent = true }
 
-        map("n", "gd", "<CMD>FzfLua lsp_definitions<CR>", opts)
-        map("n", "gi", "<CMD>FzfLua lsp_implementations<CR>", opts)
-        map("n", "gr", "<CMD>FzfLua lsp_references<CR>", opts)
+        map("n", "gd", "<CMD>FzfLua lsp_definitions<CR>", { noremap = true, silent = true, desc = "goto definition" })
+        map(
+          "n",
+          "gi",
+          "<CMD>FzfLua lsp_implementations<CR>",
+          { noremap = true, silent = true, desc = "goto implementation" }
+        )
+        map("n", "gr", "<CMD>FzfLua lsp_references<CR>", { noremap = true, silent = true, desc = "goto reference" })
 
-        map("n", "<leader>ca", "<CMD>FzfLua lsp_code_actions<CR>", opts)
-        map("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        map("n", "<leader>k", vim.lsp.buf.hover, opts)
-        map("n", "<leader>d", vim.diagnostic.open_float, opts)
+        map(
+          "n",
+          "<leader>ca",
+          "<CMD>FzfLua lsp_code_actions<CR>",
+          { noremap = true, silent = true, desc = "lsp code action" }
+        )
+        map("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "lsp rename" })
+        map("n", "<leader>k", vim.lsp.buf.hover, { noremap = true, silent = true, desc = "show hover" })
+        map("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true, desc = "open diagnostic" })
 
         if vim.bo.filetype == "tex" then
-          map("n", "<leader>jj", "<cmd>TexlabForward<cr>")
-          map("n", "<leader>rn", "<cmd>TexlabChangeEnvironment<cr>")
-          map("n", "<leader>ll", "<cmd>VimtexCompile<cr>")
+          map(
+            "n",
+            "<leader>jj",
+            "<cmd>TexlabForward<cr>",
+            { noremap = true, silent = true, desc = "latex forward search" }
+          )
+          map(
+            "n",
+            "<leader>rn",
+            "<cmd>TexlabChangeEnvironment<cr>",
+            { noremap = true, silent = true, desc = "tex change environment" }
+          )
+          map("n", "<leader>ll", "<cmd>VimtexCompile<cr>", { noremap = true, silent = true, desc = "tex compile" })
         end
       end,
 

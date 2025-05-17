@@ -3,6 +3,19 @@ local g = vim.g
 local autocmd = vim.api.nvim_create_autocmd
 
 g.mapleader = " "
+g.clipboard = {
+  name = "win32yank-wsl",
+  copy = {
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf",
+  },
+  paste = {
+    ["+"] = "win32yank.exe -o --lf",
+    ["*"] = "win32yank.exe -o --lf",
+  },
+  cache_enabled = 0,
+}
+
 o.clipboard = "unnamedplus"
 o.undofile = true
 o.swapfile = false
@@ -59,7 +72,6 @@ autocmd("BufReadPost", {
     if last_pos > 1 and last_pos <= vim.fn.line("$") then
       vim.api.nvim_win_set_cursor(0, { last_pos, 0 })
     end
-    vim.o.scroll = 5
   end,
 })
 
