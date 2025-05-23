@@ -148,13 +148,12 @@ return {
       on_attach = function()
         local gitsigns = require("gitsigns")
         local map = vim.keymap.set
-        map("n", "<leader>gd", function()
-          gitsigns.diffthis("~")
-        end, { desc = "git diff file" })
+        map("n", "<leader>gd", gitsigns.diffthis, { desc = "git diff file" })
         map("n", "<leader>gp", gitsigns.preview_hunk_inline, { desc = "git preview hunk" })
-        map("n", "<leader>gr", function()
-          gitsigns.reset_hunk()
-        end, { desc = "git reset hunk" })
+        map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "git reset hunk" })
+        map("n", "<leader>g[", gitsigns.prev_hunk, { desc = "git next hunk" })
+        map("n", "<leader>g]", gitsigns.next_hunk, { desc = "git previous hunk" })
+        map("n", "<leader>gb", gitsigns.blame, { desc = "git blame" })
       end,
     },
   },
