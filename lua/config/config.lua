@@ -46,13 +46,6 @@ autocmd("FileType", {
   end,
 })
 
-autocmd("FileType", {
-  pattern = { "vue" },
-  callback = function()
-    vim.bo.commentstring = "<!-- %s -->"
-  end,
-})
-
 autocmd("BufReadPost", {
   pattern = "*",
   callback = function()
