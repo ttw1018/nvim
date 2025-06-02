@@ -4,6 +4,21 @@ local autocmd = vim.api.nvim_create_autocmd
 
 g.mapleader = " "
 
+if jit.os == "Linux" then
+  g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+    cache_enabled = 0,
+  }
+end
+
 o.clipboard = "unnamedplus"
 o.undofile = true
 o.swapfile = false
