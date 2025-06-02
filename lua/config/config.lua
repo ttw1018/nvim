@@ -42,7 +42,7 @@ autocmd("FileType", {
   pattern = { "tex" },
   callback = function()
     vim.keymap.set("n", "<leader>ll", "<cmd>VimtexCompile<cr>", { buffer = true })
-    vim.keymap.set("n", "<leader>jj", "<cmd>TexlabForward<cr>", { buffer = true })
+    vim.keymap.set("n", "<leader>jj", "<cmd>VimtexView<cr>", { buffer = true })
   end,
 })
 

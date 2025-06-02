@@ -544,6 +544,9 @@ end
 return {
   "rebelot/heirline.nvim",
   version = "*",
+  dependencies = {
+    "SmiteshP/nvim-navic",
+  },
   config = function()
     local heirline = require("heirline")
     heirline.setup(config())

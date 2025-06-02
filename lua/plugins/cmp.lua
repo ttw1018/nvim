@@ -10,7 +10,6 @@ return {
       },
       appearance = {
         use_nvim_cmp_as_default = true,
-        -- nerd_font_variant = "mono",
       },
       signature = {
         enabled = true,
@@ -35,7 +34,7 @@ return {
       },
       completion = {
         list = {
-          max_items = 30,
+          max_items = 50,
         },
         accept = {
           auto_brackets = {
@@ -67,6 +66,8 @@ return {
         vue = { "prettierd" },
         typescript = { "prettierd" },
         javascript = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        javascriptreact = { "prettierd" },
         css = { "prettierd" },
         json = { "prettierd" },
       },
