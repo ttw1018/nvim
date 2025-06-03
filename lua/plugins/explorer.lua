@@ -2,6 +2,7 @@ return {
   {
     "ibhagwan/fzf-lua",
     version = "*",
+    event = "VeryLazy",
     keys = {
       { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "find file" },
       { "<leader>lg", "<cmd>FzfLua live_grep<cr>", desc = "live grep" },
