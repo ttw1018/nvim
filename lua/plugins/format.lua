@@ -16,7 +16,8 @@ return {
       json = { "prettierd" },
     },
     format_on_save = {
-      timeout_ms = 500,
+      async = true,
+      timeout_ms = 3000,
       lsp_format = "fallback",
     },
   },
