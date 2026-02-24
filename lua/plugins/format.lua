@@ -15,10 +15,10 @@ return {
       css = { "prettierd" },
       json = { "prettierd" },
     },
-    format_on_save = {
-      async = true,
-      timeout_ms = 3000,
-      lsp_format = "fallback",
-    },
+    -- format_on_save = {
+    --   async = true,
+    --   timeout_ms = 3000,
+    --   lsp_format = "fallback",
+    -- },
   },
 }

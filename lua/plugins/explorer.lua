@@ -4,15 +4,15 @@ return {
     version = "*",
     event = "VeryLazy",
     keys = {
-      { "<leader>ff", "<cmd>FzfLua files<cr>",                     desc = "find file" },
-      { "<leader>lg", "<cmd>FzfLua live_grep<cr>",                 desc = "live grep" },
-      { "<leader>fh", "<cmd>FzfLua helptags<cr>",                  desc = "help tags" },
-      { "<leader>fo", "<cmd>FzfLua oldfiles<cr>",                  desc = "old files" },
-      { "<leader>fb", "<cmd>FzfLua buffers<cr>",                   desc = "find buffer" },
+      { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "find file" },
+      { "<leader>lg", "<cmd>FzfLua live_grep<cr>", desc = "live grep" },
+      { "<leader>fh", "<cmd>FzfLua helptags<cr>", desc = "help tags" },
+      { "<leader>fo", "<cmd>FzfLua oldfiles<cr>", desc = "old files" },
+      { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "find buffer" },
       { "<leader>fd", "<cmd>FzfLua lsp_workspace_diagnostics<cr>", desc = "show diagnostics" },
-      { "<leader>fj", "<cmd>FzfLua jumps<cr>",                     desc = "show jumplist" },
-      { "<leader>fm", "<cmd>FzfLua marks<cr>",                     desc = "show marks" },
-      { "<leader>tt", "<cmd>FzfLua<cr>",                           desc = "show fzflua" },
+      { "<leader>fj", "<cmd>FzfLua jumps<cr>", desc = "show jumplist" },
+      -- { "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "show marks" },
+      { "<leader>tt", "<cmd>FzfLua<cr>", desc = "show fzflua" },
     },
     config = function()
       require("fzf-lua").setup({
