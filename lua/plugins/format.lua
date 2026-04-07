@@ -14,6 +14,14 @@ return {
       javascriptreact = { "prettierd" },
       css = { "prettierd" },
       json = { "prettierd" },
+      sh = { "shfmt" },
+    },
+    formatters = {
+      shfmt = {
+        command = "shfmt",
+        args = { "-i", "2", "-ci", "-s" },
+        stdin = true,
+      },
     },
     -- format_on_save = {
     --   async = true,
