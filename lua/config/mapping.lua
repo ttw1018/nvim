@@ -28,3 +28,11 @@ map("n", "<C-l>", "<C-W>l", { silent = true, noremap = true })
 map({ "n", "v" }, "<leader>fm", function()
   require("conform").format({ async = true })
 end, { desc = "Format file" })
+
+map({ "n", "v" }, "<leader>e", function()
+  if vim.bo.filetype == "oil" then
+    require("oil").close()
+  else
+    require("oil").open()
+  end
+end, { desc = "Format file" })

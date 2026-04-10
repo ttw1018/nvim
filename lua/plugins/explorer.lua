@@ -29,6 +29,7 @@ return {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
     version = "*",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -65,5 +66,11 @@ return {
         },
       })
     end,
+  },
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
   },
 }

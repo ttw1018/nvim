@@ -22,8 +22,7 @@ return {
             return { "lsp", "buffer", "path", "snippets" }
           end
         end,
-        providers = {
-        },
+        providers = {},
       },
       completion = {
         list = {
@@ -46,5 +45,4 @@ return {
     },
     opts_extend = { "sources.default" },
   },
-
 }
