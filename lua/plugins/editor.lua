@@ -14,7 +14,7 @@ return {
     "hadronized/hop.nvim",
     version = "*",
     keys = {
-      { "F", mode = { "n", "x", "o" }, "<cmd>HopChar1<cr>" },
+      { "F", mode = { "n", "x", "o", "v" }, "<cmd>HopChar1<cr>" },
     },
     config = function()
       require("hop").setup()

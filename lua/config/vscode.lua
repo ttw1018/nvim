@@ -33,7 +33,7 @@ local gh = function(x)
   return "https://github.com/" .. x
 end
 
-map({ "n", "x", "o" }, "F", "<cmd>HopChar1<cr>", { silent = true, noremap = true })
+map({ "n", "x", "o", "v" }, "F", "<cmd>HopChar1<cr>", { silent = true, noremap = true })
 
 vim.pack.add({
   gh("hadronized/hop.nvim"),
